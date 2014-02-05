@@ -1,0 +1,84 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+body, p 	{
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+p {
+	margin-bottom:14px;
+
+}
+
+h1 {
+	color: 			#000000;
+	font-family: 	'blanchcaps_inline';
+	font-size: 		68px;
+	font-weight: 	normal;
+	margin: 		0;
+	text-align: 	center;
+}
+
+h1 span.blue {
+	color:			blue;
+}
+
+h1 span.pink{
+	color:			pink;
+}
+
+h2.block-title {
+	color: 			#000000;
+	font-family: 	'blanchcaps_inline';
+	font-size: 		56px;
+	font-weight: 	normal;
+	margin: 		0;
+	text-align: 	center;
+
+}
+
+/*branding*/
+.branding-data {
+	background: url(../logo_bg.png) center top no-repeat;
+	text-align: center;
+	height:130px;
+	z-index: 1000;
+	margin-top:10px;
+	padding-top: 20px;
+	width:200px;
+	left:10px;
+	position: absolute;
+}
+.logo-img {
+	margin:0 auto;
+	width:142px;
+	float:none;
+}
+
+/*Homepage Panels*/
+#block-views-hp-slideshow-block {
+margin-top:-60px;
+}
+
+.flexslider {
+	background: 	none;
+	border: 		none;
+    border-radius: 	none;
+    box-shadow: 	none;
+    position: 		relative;
+}
+
+.flex-direction-nav a:before {display: none;}
+.flex-direction-nav a.flex-prev {background: url(../images/left_arrow.png) center center no-repeat; height:100px; width:100px;}
+.flex-direction-nav a.flex-next {background: url(../images/right_arrow.png) center center no-repeat; height:100px; width:100px;}
+
+.flexslider .flex-direction-nav a,
+.flexslider .flex-direction-nav a {
+display: block; /* I added this line */
+}
+
+
+
+footer {
+	text-align: 	center;
+}

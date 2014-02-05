@@ -1,0 +1,16 @@
+diff --git a/flexslider_picture/theme/flexslider_picture.theme.inc b/flexslider_picture/theme/flexslider_picture.theme.inc
+index 90889db..2a01035 100644
+--- a/flexslider_picture/theme/flexslider_picture.theme.inc
++++ b/flexslider_picture/theme/flexslider_picture.theme.inc
+@@ -96,9 +96,9 @@ function theme_flexslider_picture_list(&$vars) {
+     if (!empty($vars['items'])) {
+       $output .= "<$type" . drupal_attributes($attributes) . '>';
+       foreach ($vars['items'] as $i => $item) {
+-        $item = render($item['slide']);
++        $rendered_slide = render($item['slide']);
+         $output .= theme('flexslider_list_item', array(
+-          'item' => $item,
++          'item' => $rendered_slide,
+           'thumb' => $item['thumb'],
+           'optionset' => $vars['settings']['optionset'],
+         ));

@@ -1,0 +1,49 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal 
+ *  and widescreen CSS files as appropriate. */
+ 
+ /*Menu*/
+ 
+.top-menu, .bottom-menu {display:inherit;}
+
+#section-header ul, #section-header ul ul {
+	margin: 0;
+}
+
+#section-header ul ul {
+	display: none;
+}
+
+#section-header li {
+	display: inline;
+	list-style: none;
+	padding: 0;
+	margin:0;
+}
+
+#section-header li.top-link {
+	width:100%;
+}
+
+#region-header-second ul.top-menu li {
+	float: 					right;
+	text-align: 			right;	
+	width:					100%;	
+}
+
+#region-header-second ul.bottom-menu li {
+	margin-left:			5px;
+	text-align: 			right;	
+	float: 					right;
+}
+
+#region-header-first ul.bottom-menu li {
+	margin-right:			5px;
+}
+
+#region-header-first, #region-header-second {
+	margin-top:10px;
+	
+}
+

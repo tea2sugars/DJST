@@ -1,0 +1,6 @@
+In panels.js line 6.
+
+    if ($.browser.msie) {
+to
+
+    if (navigator.userAgent.match(/msie/i)) {
