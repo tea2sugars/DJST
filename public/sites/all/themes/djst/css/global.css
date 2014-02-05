@@ -1,2 +1,29 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+body {
+	background: rgb(225,220,210);
+	color:black;
+	font-family: 'Josefin Sans', sans-serif;	
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+	color:black;
+	font-family: 'Josefin Sans', sans-serif;	
+}
+
+h1, h2, h3, h4 {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.grey-section {
+	background:rgb(100,100,95);
+	color:white;
+	padding:20px;
+}
+
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li {
+	color:white;
+	font-family: 'Josefin Sans', sans-serif;	
+	font-weight: normal;
+}
