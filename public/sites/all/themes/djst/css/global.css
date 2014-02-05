@@ -1,19 +1,28 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
+
 body {
 	background: rgb(225,220,210);
 	color:black;
-	font-family: 'Josefin Sans', sans-serif;	
+	
 }
 
-h1, h2, h3, h4, h5, h6, p, li {
+h1, h2, h3, h4, h5, h6, p {
 	color:black;
-	font-family: 'Josefin Sans', sans-serif;	
+	font-family: 'Josefin Sans';
 }
 
 h1, h2, h3, h4 {
 	text-transform: uppercase;
 	text-align: center;
+	font-weight: 600;
+}
+
+p {
+	font-size:16px;
+	line-height:1.2;
+	margin-bottom:8px;
 }
 
 .grey-section {
@@ -24,6 +33,22 @@ h1, h2, h3, h4 {
 
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li {
 	color:white;
-	font-family: 'Josefin Sans', sans-serif;	
-	font-weight: normal;
+	font-family: 'Josefin Sans';	
+}
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6 {
+	font-weight: 600;
+}
+
+.col-4 {
+	float:left;
+	width:25%;
+}
+
+.2-col-text {
+	-moz-column-count:2; /* Firefox */
+	-webkit-column-count:2; /* Safari and Chrome */
+	column-count:2;
+	-moz-column-gap:10px; /* Firefox */
+	-webkit-column-gap:10px; /* Safari and Chrome */
+	column-gap:10px;
 }
