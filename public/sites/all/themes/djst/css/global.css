@@ -2,15 +2,59 @@
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
 
+/*------------------------------------*\
+  RESET
+\*------------------------------------*/
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea,
+p, blockquote, th, td { 
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset, img {
+  border: 0;
+}
+address, caption, cite, dfn, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+caption, th {
+  text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before, q:after {
+  content: '';
+}
+abbr, acronym {
+  border: 0;
+}
+
+/*--END OF RESET--*/
+
 body {
 	background: rgb(225,220,210);
 	color:black;
-	
+	font-family: 'Josefin Sans', sans-serif;
+	font-size:1em; /*16px*/
+	line-height: 1.5em;
+
 }
 
-h1, h2, h3, h4, h5, h6, p {
+/*------------------------------------*\
+  TYPE
+\*------------------------------------*/
+
+h1, h2, h3, h4, h5, h6  {
 	color:black;
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 h1, h2, h3, h4 {
@@ -19,21 +63,28 @@ h1, h2, h3, h4 {
 	font-weight: 600;
 }
 
+h1 {font-size:24px; line-height:1.5em; margin:12px 48px;}
+h2 {font-size:24px; line-height:1.5em; margin:12px 48px;}
+h3 {font-size:20px; line-height:1.25em;}
+h4 {font-size:18px; line-height:1.125em;}
+h5 {font-size:18px; line-height:1.125em;}
+h6 {font-szie:16px; line-height:1.5em;}
+
+
 p {
-	font-size:16px;
-	line-height:1.2;
-	margin-bottom:8px;
+	font-size:1em;
+	line-height:1.5em;
+	margin-bottom: 24px;
 }
 
 .grey-section {
 	background:rgb(100,100,95);
 	color:white;
-	padding:20px;
+	padding:24px;
 }
 
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li {
 	color:white;
-	font-family: 'Josefin Sans';	
 }
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6 {
 	font-weight: 600;
@@ -41,14 +92,38 @@ p {
 
 .col-4 {
 	float:left;
-	width:25%;
+	width:212px;
 }
 
-.2-col-text {
-	-moz-column-count:2; /* Firefox */
-	-webkit-column-count:2; /* Safari and Chrome */
-	column-count:2;
-	-moz-column-gap:10px; /* Firefox */
-	-webkit-column-gap:10px; /* Safari and Chrome */
-	column-gap:10px;
+.col-4 p {
+	text-align: justify;
 }
+
+.group-col1 {
+	margin-right:6px;
+}
+.group-col2 {
+	margin: 0 6px;
+}
+.group-col3 {
+	margin:0 6px;
+}
+.group-col4 {
+	margin-left:6px;
+}
+
+.two-col-text {
+	-moz-column-count:2; 	
+	-webkit-column-count:2; 
+	column-count:2;
+	-moz-column-gap:12px; 
+	-webkit-column-gap:12px; 
+	column-gap:12px;
+}
+
+.two-col-text p+p {
+  text-indent: 1em;
+  margin-top: -24px;
+}
+
+#node_homepage_full_group_appointment_settings:after {clear:both; overflow: visible;}
