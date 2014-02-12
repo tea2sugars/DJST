@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6  {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
 	text-transform: uppercase;
 	text-align: center;
 	font-weight: 600;
@@ -66,16 +66,93 @@ h1, h2, h3, h4 {
 h1 {font-size:24px; line-height:1.5em; margin:12px 48px;}
 h2 {font-size:24px; line-height:1.5em; margin:12px 48px;}
 h3 {font-size:20px; line-height:1.25em;}
-h4 {font-size:18px; line-height:1.125em;}
+h4 {font-size:18px; line-height:1.125em; margin-left:-0.5em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
 h5 {font-size:18px; line-height:1.125em;}
 h6 {font-szie:16px; line-height:1.5em;}
 
+h4:before {content:"/"; color: red; font-weight: 400; margin:0 0.5em 0 0;}
 
 p {
 	font-size:1em;
 	line-height:1.5em;
 	margin-bottom: 24px;
 }
+
+li {
+	font-size:1em;
+	margin-bottom: 12px;
+}
+
+a:link, a:visited {
+	color:black;
+	text-decoration: underline;
+}
+
+a:hover, a.active {
+	color:red;
+	
+}
+
+.navigation {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	margin-bottom: 12px;
+}
+
+.navigation li:before {
+	content:"/";
+	color: black;
+	font-size: 2em;
+	font-weight: 400;
+	line-height: 0;
+	margin:0 6px;
+}
+
+#region-sidebar-first .navigation li {
+	display: inline;
+	margin:6px 24px 6px 0;
+	float: left;
+}
+
+#region-sidebar-second .navigation li {
+	display: inline;
+	margin:6px 0 6px 24px;
+	float: right;
+}
+
+.navigation li a:link, .navigation li a:visited {
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration:none;
+}
+
+.header_bullet li {
+	font-size: 0.8em;
+	list-style: none;
+	margin-top:24px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#region-sidebar-first p:before {
+	content:"[]";
+	margin-right: 6px;
+}
+
+#region-sidebar-second p {
+	text-align: right;
+}
+
+#region-sidebar-second p:before {
+	content:"[]";
+	margin-right: 6px;
+}
+
+#region-sidebar-second a {
+	text-transform: uppercase;
+}
+
+
 
 .grey-section {
 	background:rgb(100,100,95);
@@ -119,6 +196,7 @@ p {
 	-moz-column-gap:12px; 
 	-webkit-column-gap:12px; 
 	column-gap:12px;
+	margin-bottom:24px;
 }
 
 .two-col-text p+p {
