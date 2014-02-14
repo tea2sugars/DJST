@@ -63,14 +63,16 @@ h1, h2, h3, h4, h5 {
 	font-weight: 600;
 }
 
+h1, h2 {
+	letter-spacing: 0.025em;
+}
+
 h1 {font-size:24px; line-height:1.5em; margin:12px 48px;}
 h2 {font-size:24px; line-height:1.5em; margin:12px 48px;}
 h3 {font-size:20px; line-height:1.25em;}
-h4 {font-size:18px; line-height:1.125em; margin-left:-0.5em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+h4 {font-size:18px; line-height:1.125em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
 h5 {font-size:18px; line-height:1.125em;}
 h6 {font-szie:16px; line-height:1.5em;}
-
-h4:before {content:"/"; color: red; font-weight: 400; margin:0 0.5em 0 0;}
 
 p {
 	font-size:1em;
@@ -89,23 +91,27 @@ a:link, a:visited {
 }
 
 a:hover, a.active {
-	color:red;
+	color:#A10000;
 	
 }
 
 .navigation {
 	border-top:1px solid black;
 	border-bottom:1px solid black;
-	margin-bottom: 12px;
+	
 }
 
-.navigation li:before {
-	content:"/";
-	color: black;
-	font-size: 2em;
-	font-weight: 400;
-	line-height: 0;
-	margin:0 6px;
+.navigation li {
+	background: url(../images/nav_divider.png) no-repeat left center;
+	padding:0 0 0 24px;
+}
+
+#region-sidebar-first .navigation {
+margin:0 -12px 24px 0;
+}
+
+#region-sidebar-second .navigation {
+margin:0 0 24px -12px;
 }
 
 #region-sidebar-first .navigation li {
@@ -134,19 +140,17 @@ a:hover, a.active {
 	text-transform: uppercase;
 }
 
-#region-sidebar-first p:before {
-	content:"[]";
-	margin-right: 6px;
+#region-sidebar-first p {
+	background:url(../images/phone_icon.png) no-repeat;
+	padding:6px 0 6px 47px;
 }
 
 #region-sidebar-second p {
-	text-align: right;
+	background:url(../images/envelope_icon.png) no-repeat;
+	padding:6px 0 6px 59px;
+	float:right;
 }
 
-#region-sidebar-second p:before {
-	content:"[]";
-	margin-right: 6px;
-}
 
 #region-sidebar-second a {
 	text-transform: uppercase;
@@ -155,7 +159,7 @@ a:hover, a.active {
 
 
 .grey-section {
-	background:rgb(100,100,95);
+	background:rgb(100,100,95) url(../images/cream_grey_arrow.jpg) no-repeat center top;
 	color:white;
 	padding:24px;
 }
@@ -169,33 +173,44 @@ a:hover, a.active {
 
 .col-4 {
 	float:left;
-	width:212px;
+	width:25%;
+	text-align: center;
 }
 
 .col-4 p {
 	text-align: justify;
+	margin:0 0.5em;
 }
 
-.group-col1 {
-	margin-right:6px;
-}
-.group-col2 {
-	margin: 0 6px;
-}
-.group-col3 {
-	margin:0 6px;
-}
-.group-col4 {
-	margin-left:6px;
+.col-4 h5 {
+	margin-top:24px;
 }
 
+#region-branding {
+	text-align: center;
+}
+
+.logo-img {
+	margin:12px 0 24px 0;
+	float: none;
+	
+}
+
+.field-name-field-call-out-image {
+	margin-bottom: 24px;
+}
+
+.field-name-field-call-out-image img {
+	width: 100%;
+	height:auto;
+}
 .two-col-text {
 	-moz-column-count:2; 	
 	-webkit-column-count:2; 
 	column-count:2;
-	-moz-column-gap:12px; 
-	-webkit-column-gap:12px; 
-	column-gap:12px;
+	-moz-column-gap:24px; 
+	-webkit-column-gap:24px; 
+	column-gap:24px;
 	margin-bottom:24px;
 }
 
@@ -204,4 +219,4 @@ a:hover, a.active {
   margin-top: -24px;
 }
 
-#node_homepage_full_group_appointment_settings:after {clear:both; overflow: visible;}
+#node_homepage_full_group_how_we_work .field-name-body p {text-align: center; margin-left:3em; margin-right:3em;}
