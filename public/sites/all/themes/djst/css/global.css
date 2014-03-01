@@ -67,12 +67,12 @@ h1, h2 {
 	letter-spacing: 0.025em;
 }
 
-h1 {font-size:24px; line-height:1.5em; margin:12px 48px;}
-h2 {font-size:24px; line-height:1.5em; margin:12px 48px;}
-h3 {font-size:20px; line-height:1.25em;}
-h4 {font-size:18px; line-height:1.125em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
-h5 {font-size:18px; line-height:1.125em;}
-h6 {font-szie:16px; line-height:1.5em;}
+h1 		{font-size:24px; line-height:1.5em; margin:12px 48px;}
+h2 		{font-size:24px; line-height:1.5em; margin:12px auto; max-width: 480px; }
+h3 		{font-size:20px; line-height:1.25em;}
+h4 		{font-size:18px; line-height:1.125em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+h5, h6 	{font-size:18px; line-height:1.125em;}
+
 
 p {
 	font-size:1em;
@@ -109,6 +109,10 @@ a:hover, a.active {
 	font-weight: 600;
 }
 
+#block-views-contact-block, #block-views-clients-block {
+	padding:24px 0 24px 0;
+}
+
 /*Content*/
 .field-name-field-call-out-image {
 	margin-bottom: 24px;
@@ -122,7 +126,9 @@ a:hover, a.active {
 /*Client Area*/
 .view-clients .view-content .views-row {
 	float:left;
-	width:165px;
-	margin:0.5em;
-	
+	width:168px;
+	margin:6px;
+}
+.views-field-field-client-icon {
+	margin-bottom:12px;
 }
