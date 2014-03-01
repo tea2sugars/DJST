@@ -96,16 +96,16 @@ a:hover, a.active {
 }
 
 /*Structure*/
-.grey-section {
+.grey-section, #block-block-3 {
 	background:rgb(100,100,95) url(../images/cream_grey_arrow.jpg) no-repeat center top;
 	color:white;
 	padding:24px;
 }
 
-.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li {
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
 	color:white;
 }
-.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6 {
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6 {
 	font-weight: 600;
 }
 
@@ -117,4 +117,12 @@ a:hover, a.active {
 .field-name-field-call-out-image img {
 	width: 100%;
 	height:auto;
+}
+
+/*Client Area*/
+.view-clients .view-content .views-row {
+	float:left;
+	width:165px;
+	margin:0.5em;
+	
 }

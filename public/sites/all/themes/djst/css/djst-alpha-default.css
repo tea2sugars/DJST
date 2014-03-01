@@ -109,4 +109,4 @@ margin:0 0 24px -12px;
   margin-top: -24px;
 }
 
-#node_homepage_full_group_how_we_work .field-name-body p {text-align: center; margin-left:3em; margin-right:3em;}
+#node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p {text-align: center; margin-left:3em; margin-right:3em;}
