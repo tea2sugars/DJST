@@ -132,3 +132,9 @@ a:hover, a.active {
 .views-field-field-client-icon {
 	margin-bottom:12px;
 }
+
+/*footer*/
+footer {
+	background: black;
+	color: white;
+}
