@@ -48,6 +48,8 @@ body {
 
 }
 
+#node-homepage-1 {width:960px; margin-left:-10px;}
+
 /*------------------------------------*\
   TYPE
 \*------------------------------------*/
@@ -125,9 +127,7 @@ a:hover, a.active {
 
 /*Client Area*/
 .view-clients .view-content .views-row {
-	float:left;
-	width:168px;
-	margin:6px;
+	border: 1px solid green;
 }
 .views-field-field-client-icon {
 	margin-bottom:12px;
@@ -137,4 +137,11 @@ a:hover, a.active {
 footer {
 	background: black;
 	color: white;
+}
+
+/*Grid margin-reset*/
+.region-inner .grid-1, .region-inner .grid-2, .region-inner .grid-3, .region-inner .grid-4, .region-inner .grid-5, .region-inner .grid-6, .region-inner .grid-7, .region-inner .grid-8, .region-inner .grid-9, .region-inner .grid-10, 
+.region-inner .grid-11, .region-inner .grid-12, .region-inner .grid-13, .region-inner .grid-14, .region-inner .grid-15, .region-inner .grid-16 {
+	margin-left:0;
+	margin-right: 0;
 }
