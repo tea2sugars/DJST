@@ -99,7 +99,7 @@ a:hover, a.active {
 
 /*Structure*/
 .grey-section, #block-block-3 {
-	background:rgb(100,100,95) url(../images/cream_grey_arrow.jpg) no-repeat center top;
+	background:#64645F;
 	color:white;
 	padding:24px 10px;
 }
@@ -137,6 +137,9 @@ a:hover, a.active {
 #node_homepage_full_group_appointment_settings .field-type-text-long p {
 	margin:0 12px;
 	text-align: justify;
+}
+#block-views-clients-block p {
+	text-align: center;
 }
 
 /*Client Area*/
