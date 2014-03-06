@@ -111,3 +111,14 @@ margin:60px 0 24px -12px;
 
 #node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p {text-align: center; margin-left:3em; margin-right:3em;}
 
+.view-clients .views-row {
+	margin-bottom:24px;
+}
+
+.view-clients .views-row-2, .view-clients .views-row-6, .view-clients .views-row-10 {
+	margin:0 0 0 20px;
+}
+
+.view-clients .views-row-3, .view-clients .views-row-7, .view-clients .views-row-11 {
+	margin:0 20px;
+}

@@ -101,7 +101,7 @@ a:hover, a.active {
 .grey-section, #block-block-3 {
 	background:rgb(100,100,95) url(../images/cream_grey_arrow.jpg) no-repeat center top;
 	color:white;
-	padding:24px;
+	padding:24px 10px;
 }
 
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
@@ -125,10 +125,24 @@ a:hover, a.active {
 	height:auto;
 }
 
+#node_homepage_full_group_col1 {margin-left:12px;}
+#node_homepage_full_group_col2 {margin-left:12px;}
+#node_homepage_full_group_col3 {margin:0 12px;}
+
+#node_homepage_full_group_appointment_settings .field-type-image {
+	margin-bottom:24px;
+	text-align: center;
+}
+
+#node_homepage_full_group_appointment_settings .field-type-text-long p {
+	margin:0 12px;
+	text-align: justify;
+}
+
 /*Client Area*/
 .view-clients .view-content .views-row {
-	border: 1px solid green;
-}
+ text-align: center;
+ }
 .views-field-field-client-icon {
 	margin-bottom:12px;
 }
