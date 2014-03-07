@@ -1,6 +1,6 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,700);
 
 /*------------------------------------*\
   RESET
@@ -48,7 +48,7 @@ body {
 
 }
 
-#node-homepage-1 {width:960px; margin-left:-10px;}
+
 
 /*------------------------------------*\
   TYPE
@@ -62,25 +62,25 @@ h1, h2, h3, h4, h5, h6  {
 h1, h2, h3, h4, h5 {
 	text-transform: uppercase;
 	text-align: center;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 h1, h2 {
 	letter-spacing: 0.025em;
 }
 
-h1 		{font-size:24px; line-height:1.5em; margin:12px 48px;}
-h2 		{font-size:24px; line-height:1.5em; margin:12px auto; max-width: 480px; }
-h3 		{font-size:20px; line-height:1.25em;}
-h4 		{font-size:18px; line-height:1.125em;} /*Negative margin counteracts the :before margin ensuring title is centered*/
-h5, h6 	{font-size:18px; line-height:1.125em;}
+h1, h2 			{font-size:36px; line-height:1.125; margin:12px auto; max-width:80%; }
+h3 				{font-size:20px; line-height:1.2em; margin-bottom:12px;}
+h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase; font-weight:400;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+
 
 
 p {
-	font-size:1em;
-	line-height:1.5em;
+	font-size:18px;
+	line-height:1.333em;
 	margin-bottom: 24px;
-}
+	font-weight:400;
+	}
 
 li {
 	font-size:1em;
@@ -97,6 +97,36 @@ a:hover, a.active {
 	
 }
 
+/*Branding*/
+#region-branding {
+	text-align: center;
+}
+
+.logo-img {
+	margin:12px 0 24px 0;
+	float: none;
+	
+}
+
+/*Navigation*/
+
+.navigation {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	
+}
+
+.navigation li {
+	background: url(../images/nav_divider.png) no-repeat left center;
+	padding:0 0 0 24px;
+}
+
+.navigation li a:link, .navigation li a:visited {
+	font-weight: 	600;
+	text-transform: uppercase;
+	text-decoration:none;
+}
+
 /*Structure*/
 .grey-section, #block-block-3 {
 	background:#64645F;
@@ -104,11 +134,15 @@ a:hover, a.active {
 	padding:24px 10px;
 }
 
+#node_homepage_full_group_aboutus, #block-views-clients-block, #block-views-contact-block {
+	padding-left:10px !important; padding-right:10px !important;
+}
+
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
 	color:white;
 }
 .grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6 {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 #block-views-contact-block, #block-views-clients-block {
@@ -135,8 +169,10 @@ a:hover, a.active {
 }
 
 #node_homepage_full_group_appointment_settings .field-type-text-long p {
-	margin:0 12px;
+	margin:0 6px 24px 6px;
 	text-align: justify;
+	font-size:16px;
+	line-height:1.5;
 }
 #block-views-clients-block p {
 	text-align: center;
@@ -162,3 +198,20 @@ footer {
 	margin-left:0;
 	margin-right: 0;
 }
+
+/*Content Grid*/
+.col-4 {
+	float:left;
+	width:25%;
+	text-align: center;
+}
+
+.col-4 p {
+	text-align: justify;
+	margin:0 0.5em;
+}
+
+.col-4 h5 {
+	margin-top:24px;
+}
+

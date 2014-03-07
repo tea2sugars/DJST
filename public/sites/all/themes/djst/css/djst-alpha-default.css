@@ -3,105 +3,62 @@
 .field-name-field-icon-2 img, 
 .field-name-field-icon-3 img,
 .field-name-field-icon-4 img {width:95%; height:auto;} */
-.navigation {
-	border-top:1px solid black;
-	border-bottom:1px solid black;
-	
-}
 
-.navigation li {
-	background: url(../images/nav_divider.png) no-repeat left center;
-	padding:0 0 0 24px;
-}
+/*Expands content to full grid width, ignores the padding on the left and right of the page*/
+#zone-content {width:960px; margin-left:auto; margin-right:auto;}
+#region-content {margin:0; width:960px;}
+#region-sidebar-first {margin-left:0;}
+#region-branding {margin:0 20px;}
+#region-sidebar-second {margin-right:0;}
 
+/*Navigation*/
 #region-sidebar-first .navigation {
-margin:60px -12px 24px 0;
+	margin:			60px 0 24px 0;
 }
 
 #region-sidebar-second .navigation {
-margin:60px 0 24px -12px;
+	margin:			60px 0 24px 0;
 }
 
 #region-sidebar-first .navigation li {
-	display: inline;
-	margin:12px 24px 12px 0;
-	float: left;
+	display: 		inline;
+	margin:			12px 24px 12px 0;
+	float: 			left;
 }
 
 #region-sidebar-second .navigation li {
-	display: inline;
-	margin:12px 0 12px 24px;
-	float: right;
-}
-
-.navigation li a:link, .navigation li a:visited {
-	font-weight: 600;
-	text-transform: uppercase;
-	text-decoration:none;
-}
-
-.header_bullet li {
-	font-size: 0.8em;
-	list-style: none;
-	margin-top:24px;
-	text-align: center;
-	text-transform: uppercase;
+	display: 		inline;
+	margin:			12px 0 12px 24px;
+	float: 			right;
 }
 
 #region-sidebar-first p {
 	background:url(../images/phone_icon.png) no-repeat;
 	padding:6px 0 6px 47px;
+	margin-left:12px;
 }
 
 #region-sidebar-second p {
-	background:url(../images/envelope_icon.png) no-repeat;
-	padding:6px 0 6px 59px;
-	float:right;
+	background:			url(../images/envelope_icon.png) no-repeat;
+	float:				right;
+	margin-right:		12px;
+	padding:			6px 0 6px 59px;
 }
-
 
 #region-sidebar-second a {
-	text-transform: uppercase;
+	text-transform: 	uppercase;
 }
-
-
-
-
-
-.col-4 {
-	float:left;
-	width:25%;
-	text-align: center;
-}
-
-.col-4 p {
-	text-align: justify;
-	margin:0 0.5em;
-}
-
-.col-4 h5 {
-	margin-top:24px;
-}
-
-#region-branding {
-	text-align: center;
-}
-
-.logo-img {
-	margin:12px 0 24px 0;
-	float: none;
-	
-}
-
+/*End of Navigation*/
 
 .two-col-text {
 	-moz-column-count:2; 	
 	-webkit-column-count:2; 
 	column-count:2;
-	-moz-column-gap:24px; 
-	-webkit-column-gap:24px; 
-	column-gap:24px;
-	margin-bottom:24px;
+	-moz-column-gap:36px; 
+	-webkit-column-gap:36px; 
+	column-gap:36px;
+	margin-bottom:36px;
+	min-height:144px;
 }
 
 .two-col-text p+p {
@@ -121,4 +78,37 @@ margin:60px 0 24px -12px;
 
 .view-clients .views-row-3, .view-clients .views-row-7, .view-clients .views-row-11 {
 	margin:0 20px;
+}
+
+/*webform*/
+#webform-component-form--form-left {
+	float:		left; 
+	width:		45%;
+}
+
+#webform-component-form--form-right {
+	float:		right; 
+	width:		45%;
+}
+
+#edit-submit {
+	border: 0;
+	border-radius: 0;
+	background: #64645F;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	padding:12px;
+	margin:0 0 12px 0;
+	text-shadow: 0 0 0;
+	font-weight: 	600;
+	text-transform: uppercase;
+	text-decoration:none;
+}
+
+#edit-actions {
+	text-align:  right;
+}
+
+.form-item, .form-actions {
+	margin:0 0 12px 0;
 }
