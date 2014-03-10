@@ -58,15 +58,19 @@
 	-webkit-column-gap:36px; 
 	column-gap:36px;
 	margin-bottom:36px;
-	min-height:144px;
+	
 }
 
 .two-col-text p+p {
   text-indent: 1em;
   margin-top: -24px;
+
 }
 
-#node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p {text-align: center; margin-left:3em; margin-right:3em;}
+#node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p, .centered-text {
+	text-align: center; 
+	margin-left:3em; 
+	margin-right:3em;}
 
 .view-clients .views-row {
 	margin-bottom:24px;

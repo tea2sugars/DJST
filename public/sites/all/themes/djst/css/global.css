@@ -65,13 +65,15 @@ h1, h2, h3, h4, h5 {
 	font-weight: 700;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
 	letter-spacing: 0.025em;
 }
 
 h1, h2 			{font-size:36px; line-height:1.125; margin:12px auto; max-width:80%; }
 h3 				{font-size:20px; line-height:1.2em; margin-bottom:12px;}
-h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase; font-weight:400;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+
+h5 {height:50px;}
 
 
 
@@ -96,6 +98,12 @@ a:hover, a.active {
 	color:#A10000;
 	
 }
+
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
+	color:white;
+}
+
+
 
 /*Branding*/
 #region-branding {
@@ -138,12 +146,6 @@ a:hover, a.active {
 	padding-left:10px !important; padding-right:10px !important;
 }
 
-.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
-	color:white;
-}
-.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6 {
-	font-weight: 700;
-}
 
 #block-views-contact-block, #block-views-clients-block {
 	padding:24px 0 24px 0;
