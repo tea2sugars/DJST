@@ -71,10 +71,20 @@ h1, h2, h3, h4 {
 
 h1, h2 			{font-size:36px; line-height:1.125; margin:12px auto; max-width:80%; }
 h3 				{font-size:20px; line-height:1.2em; margin-bottom:12px;}
-h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase;} /*Negative margin counteracts the :before margin ensuring title is centered*/
+h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase;} 
+
+h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative margin counteracts the :before margin ensuring title is centered*/
 
 h5 {height:50px;}
 
+.site-name-slogan {width:100%;}
+
+h6.site-slogan {
+	font-family: open-serif;
+	font-style: italic;
+	margin:0 auto 24px auto;
+	text-transform: lowercase;
+	width:100%;  }
 
 
 p {
@@ -111,7 +121,7 @@ a:hover, a.active {
 }
 
 .logo-img {
-	margin:12px 0 24px 0;
+	margin:12px 0 12px 0;
 	float: none;
 	
 }
