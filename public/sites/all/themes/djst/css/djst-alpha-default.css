@@ -96,7 +96,7 @@
 }
 
 #edit-submit {
-	border: 0;
+	border: 1px dashed black;
 	border-radius: 0;
 	background: #64645F;
 	color: white;
@@ -116,3 +116,32 @@
 .form-item, .form-actions {
 	margin:0 0 12px 0;
 }
+
+/*Footer*/
+
+footer {
+	text-transform: uppercase;
+}
+
+#block-delta-blocks-logo {
+	float:left;
+	width:100px;
+}
+
+#block-delta-blocks-logo .logo-img img {
+	width:100%;
+	height:auto;
+}
+
+footer h4 {
+	text-align: left;
+	color:white;
+}
+footer h4:before {display: none;}
+
+.footer-meta {
+	width:25%;
+	float:left;
+}
+
+
