@@ -15,3 +15,11 @@
 	float:right;
 	width:45%;
 }
+
+/*Footer*/
+#block-delta-blocks-logo {
+	width:70px;
+}
+
+.footer-title {font-size: 24px;}
+footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:14px;}

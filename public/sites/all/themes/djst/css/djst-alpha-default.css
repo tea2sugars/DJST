@@ -158,8 +158,13 @@ footer .grid-14, #footer-email, #footer-fax {margin-left:20px !important; }
 #footer-phone	{padding-left:60px; background: url(../images/white_phone_logo.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
 #footer-email	{padding-left:60px; background: url(../images/white_envelope_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
 #footer-fax 	{padding-left:60px; background: url(../images/white_fax_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+
+footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:16px;}
+
 .footer-copyright p {
 	font-size: 14px;
 }
+
+#block-delta-blocks-logo img {width:100%; height:auto;}
 
 
