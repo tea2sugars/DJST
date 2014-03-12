@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.7
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Mar 10, 2014 at 09:48 AM
--- Server version: 5.1.71
--- PHP Version: 5.3.8
+-- Host: localhost
+-- Generation Time: Mar 12, 2014 at 11:13 AM
+-- Server version: 5.5.29
+-- PHP Version: 5.4.10
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `DJST`
+-- Database: `DJST_production`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `actions`
 --
 
-CREATE TABLE IF NOT EXISTS `actions` (
+CREATE TABLE `actions` (
   `aid` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Primary Key: Unique actions ID.',
   `type` varchar(32) NOT NULL DEFAULT '' COMMENT 'The object that that action acts on (node, user, comment, system or custom types.)',
   `callback` varchar(255) NOT NULL DEFAULT '' COMMENT 'The callback function that executes when the action runs.',
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `actions` (
 -- Table structure for table `authmap`
 --
 
-CREATE TABLE IF NOT EXISTS `authmap` (
+CREATE TABLE `authmap` (
   `aid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique authmap ID.',
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'User’s users.uid.',
   `authname` varchar(128) NOT NULL DEFAULT '' COMMENT 'Unique authentication name.',
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `authmap` (
 -- Table structure for table `batch`
 --
 
-CREATE TABLE IF NOT EXISTS `batch` (
+CREATE TABLE `batch` (
   `bid` int(10) unsigned NOT NULL COMMENT 'Primary Key: Unique batch ID.',
   `token` varchar(64) NOT NULL COMMENT 'A string token generated against the current user’s session id and the batch id, used to ensure that only the user who submitted the batch can effectively access it.',
   `timestamp` int(11) NOT NULL COMMENT 'A Unix timestamp indicating when this batch was submitted for processing. Stale batches are purged at cron time.',
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `batch` (
 -- Table structure for table `block`
 --
 
-CREATE TABLE IF NOT EXISTS `block` (
+CREATE TABLE `block` (
   `bid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique block ID.',
   `module` varchar(64) NOT NULL DEFAULT '' COMMENT 'The module from which the block originates; for example, ’user’ for the Who’s Online block, and ’block’ for any custom blocks.',
   `delta` varchar(32) NOT NULL DEFAULT '0' COMMENT 'Unique ID for block within a module.',
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `block` (
   PRIMARY KEY (`bid`),
   UNIQUE KEY `tmd` (`theme`,`module`,`delta`),
   KEY `list` (`theme`,`status`,`region`,`weight`,`module`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores block settings, such as region and visibility...' AUTO_INCREMENT=133 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores block settings, such as region and visibility...' AUTO_INCREMENT=137 ;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `block` (
 -- Table structure for table `blocked_ips`
 --
 
-CREATE TABLE IF NOT EXISTS `blocked_ips` (
+CREATE TABLE `blocked_ips` (
   `iid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: unique ID for IP addresses.',
   `ip` varchar(40) NOT NULL DEFAULT '' COMMENT 'IP address',
   PRIMARY KEY (`iid`),
@@ -108,14 +108,14 @@ CREATE TABLE IF NOT EXISTS `blocked_ips` (
 -- Table structure for table `block_custom`
 --
 
-CREATE TABLE IF NOT EXISTS `block_custom` (
+CREATE TABLE `block_custom` (
   `bid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The block’s block.bid.',
   `body` longtext COMMENT 'Block contents.',
   `info` varchar(128) NOT NULL DEFAULT '' COMMENT 'Block description.',
   `format` varchar(255) DEFAULT NULL COMMENT 'The filter_format.format of the block body.',
   PRIMARY KEY (`bid`),
   UNIQUE KEY `info` (`info`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores contents of custom-made blocks.' AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores contents of custom-made blocks.' AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `block_custom` (
 -- Table structure for table `block_node_type`
 --
 
-CREATE TABLE IF NOT EXISTS `block_node_type` (
+CREATE TABLE `block_node_type` (
   `module` varchar(64) NOT NULL COMMENT 'The block’s origin module, from block.module.',
   `delta` varchar(32) NOT NULL COMMENT 'The block’s unique delta within module, from block.delta.',
   `type` varchar(32) NOT NULL COMMENT 'The machine-readable name of this type from node_type.type.',
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `block_node_type` (
 -- Table structure for table `block_role`
 --
 
-CREATE TABLE IF NOT EXISTS `block_role` (
+CREATE TABLE `block_role` (
   `module` varchar(64) NOT NULL COMMENT 'The block’s origin module, from block.module.',
   `delta` varchar(32) NOT NULL COMMENT 'The block’s unique delta within module, from block.delta.',
   `rid` int(10) unsigned NOT NULL COMMENT 'The user’s role ID from users_roles.rid.',
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `block_role` (
 -- Table structure for table `breakpoints`
 --
 
-CREATE TABLE IF NOT EXISTS `breakpoints` (
+CREATE TABLE `breakpoints` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The internal identifier for a responsive images suffix',
   `machine_name` varchar(255) NOT NULL COMMENT 'The machine name of the breakpoint.',
   `name` varchar(255) NOT NULL COMMENT 'The name of the breakpoint.',
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `breakpoints` (
 -- Table structure for table `breakpoint_group`
 --
 
-CREATE TABLE IF NOT EXISTS `breakpoint_group` (
+CREATE TABLE `breakpoint_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The internal identifier for a responsive images suffix',
   `machine_name` varchar(255) NOT NULL COMMENT 'The machine name of the breakpoint.',
   `name` varchar(255) NOT NULL COMMENT 'The name of the breakpoint.',
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `breakpoint_group` (
 -- Table structure for table `cache`
 --
 
-CREATE TABLE IF NOT EXISTS `cache` (
+CREATE TABLE `cache` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `cache` (
 -- Table structure for table `cache_block`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_block` (
+CREATE TABLE `cache_block` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `cache_block` (
 -- Table structure for table `cache_bootstrap`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_bootstrap` (
+CREATE TABLE `cache_bootstrap` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `cache_bootstrap` (
 -- Table structure for table `cache_field`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_field` (
+CREATE TABLE `cache_field` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `cache_field` (
 -- Table structure for table `cache_filter`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_filter` (
+CREATE TABLE `cache_filter` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `cache_filter` (
 -- Table structure for table `cache_form`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_form` (
+CREATE TABLE `cache_form` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `cache_form` (
 -- Table structure for table `cache_image`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_image` (
+CREATE TABLE `cache_image` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `cache_image` (
 -- Table structure for table `cache_libraries`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_libraries` (
+CREATE TABLE `cache_libraries` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -316,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `cache_libraries` (
 -- Table structure for table `cache_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_menu` (
+CREATE TABLE `cache_menu` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -332,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `cache_menu` (
 -- Table structure for table `cache_page`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_page` (
+CREATE TABLE `cache_page` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -348,7 +348,7 @@ CREATE TABLE IF NOT EXISTS `cache_page` (
 -- Table structure for table `cache_path`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_path` (
+CREATE TABLE `cache_path` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -364,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `cache_path` (
 -- Table structure for table `cache_token`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_token` (
+CREATE TABLE `cache_token` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -380,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `cache_token` (
 -- Table structure for table `cache_views`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_views` (
+CREATE TABLE `cache_views` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -396,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `cache_views` (
 -- Table structure for table `cache_views_data`
 --
 
-CREATE TABLE IF NOT EXISTS `cache_views_data` (
+CREATE TABLE `cache_views_data` (
   `cid` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique cache ID.',
   `data` longblob COMMENT 'A collection of data to cache.',
   `expire` int(11) NOT NULL DEFAULT '0' COMMENT 'A Unix timestamp indicating when the cache entry should expire, or 0 for never.',
@@ -412,7 +412,7 @@ CREATE TABLE IF NOT EXISTS `cache_views_data` (
 -- Table structure for table `captcha_points`
 --
 
-CREATE TABLE IF NOT EXISTS `captcha_points` (
+CREATE TABLE `captcha_points` (
   `form_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'The form_id of the form to add a CAPTCHA to.',
   `module` varchar(64) DEFAULT NULL COMMENT 'The module that provides the challenge.',
   `captcha_type` varchar(64) DEFAULT NULL COMMENT 'The challenge type to use.',
@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `captcha_points` (
 -- Table structure for table `captcha_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `captcha_sessions` (
+CREATE TABLE `captcha_sessions` (
   `csid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAPTCHA session ID.',
   `token` varchar(64) DEFAULT NULL COMMENT 'One time CAPTCHA token.',
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'User’s users.uid.',
@@ -446,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `captcha_sessions` (
 -- Table structure for table `comment`
 --
 
-CREATE TABLE IF NOT EXISTS `comment` (
+CREATE TABLE `comment` (
   `cid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique comment ID.',
   `pid` int(11) NOT NULL DEFAULT '0' COMMENT 'The comment.cid to which this comment is a reply. If set to 0, this comment is not a reply to an existing comment.',
   `nid` int(11) NOT NULL DEFAULT '0' COMMENT 'The node.nid to which this comment is a reply.',
@@ -475,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
 -- Table structure for table `context`
 --
 
-CREATE TABLE IF NOT EXISTS `context` (
+CREATE TABLE `context` (
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The primary identifier for a context.',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT 'Description for this context.',
   `tag` varchar(255) NOT NULL DEFAULT '' COMMENT 'Tag for this context.',
@@ -491,7 +491,7 @@ CREATE TABLE IF NOT EXISTS `context` (
 -- Table structure for table `ctools_css_cache`
 --
 
-CREATE TABLE IF NOT EXISTS `ctools_css_cache` (
+CREATE TABLE `ctools_css_cache` (
   `cid` varchar(128) NOT NULL COMMENT 'The CSS ID this cache object belongs to.',
   `filename` varchar(255) DEFAULT NULL COMMENT 'The filename this CSS is stored in.',
   `css` longtext COMMENT 'CSS being stored.',
@@ -505,7 +505,7 @@ CREATE TABLE IF NOT EXISTS `ctools_css_cache` (
 -- Table structure for table `ctools_object_cache`
 --
 
-CREATE TABLE IF NOT EXISTS `ctools_object_cache` (
+CREATE TABLE `ctools_object_cache` (
   `sid` varchar(64) NOT NULL COMMENT 'The session ID this cache object belongs to.',
   `name` varchar(128) NOT NULL COMMENT 'The name of the object this cache is attached to.',
   `obj` varchar(32) NOT NULL COMMENT 'The type of the object this cache is attached to; this essentially represents the owner so that several sub-systems can use this cache.',
@@ -521,7 +521,7 @@ CREATE TABLE IF NOT EXISTS `ctools_object_cache` (
 -- Table structure for table `date_formats`
 --
 
-CREATE TABLE IF NOT EXISTS `date_formats` (
+CREATE TABLE `date_formats` (
   `dfid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The date format identifier.',
   `format` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The date format string.',
   `type` varchar(64) NOT NULL COMMENT 'The date format type, e.g. medium.',
@@ -536,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `date_formats` (
 -- Table structure for table `date_format_locale`
 --
 
-CREATE TABLE IF NOT EXISTS `date_format_locale` (
+CREATE TABLE `date_format_locale` (
   `format` varchar(100) NOT NULL COMMENT 'The date format string.',
   `type` varchar(64) NOT NULL COMMENT 'The date format type, e.g. medium.',
   `language` varchar(12) NOT NULL COMMENT 'A languages.language for this format to be used with.',
@@ -549,7 +549,7 @@ CREATE TABLE IF NOT EXISTS `date_format_locale` (
 -- Table structure for table `date_format_type`
 --
 
-CREATE TABLE IF NOT EXISTS `date_format_type` (
+CREATE TABLE `date_format_type` (
   `type` varchar(64) NOT NULL COMMENT 'The date format type, e.g. medium.',
   `title` varchar(255) NOT NULL COMMENT 'The human readable name of the format type.',
   `locked` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'Whether or not this is a system provided format.',
@@ -563,7 +563,7 @@ CREATE TABLE IF NOT EXISTS `date_format_type` (
 -- Table structure for table `delta`
 --
 
-CREATE TABLE IF NOT EXISTS `delta` (
+CREATE TABLE `delta` (
   `machine_name` varchar(32) NOT NULL COMMENT 'The system name of this theme settings template.',
   `name` varchar(128) NOT NULL COMMENT 'The friendly name of this theme settings template.',
   `description` mediumtext NOT NULL COMMENT 'A brief description of this theme settings template.',
@@ -580,7 +580,7 @@ CREATE TABLE IF NOT EXISTS `delta` (
 -- Table structure for table `ds_fields`
 --
 
-CREATE TABLE IF NOT EXISTS `ds_fields` (
+CREATE TABLE `ds_fields` (
   `field` varchar(32) NOT NULL DEFAULT '' COMMENT 'The machine name of the field.',
   `label` varchar(32) NOT NULL DEFAULT '' COMMENT 'The label of the field.',
   `field_type` smallint(6) NOT NULL DEFAULT '0' COMMENT 'The type of of the field',
@@ -596,7 +596,7 @@ CREATE TABLE IF NOT EXISTS `ds_fields` (
 -- Table structure for table `ds_field_settings`
 --
 
-CREATE TABLE IF NOT EXISTS `ds_field_settings` (
+CREATE TABLE `ds_field_settings` (
   `id` varchar(255) NOT NULL DEFAULT '' COMMENT 'The unique id this setting.',
   `entity_type` varchar(32) NOT NULL DEFAULT '' COMMENT 'The name of the entity.',
   `bundle` varchar(64) NOT NULL DEFAULT '' COMMENT 'The name of the entity.',
@@ -614,7 +614,7 @@ CREATE TABLE IF NOT EXISTS `ds_field_settings` (
 -- Table structure for table `ds_layout_settings`
 --
 
-CREATE TABLE IF NOT EXISTS `ds_layout_settings` (
+CREATE TABLE `ds_layout_settings` (
   `id` varchar(255) NOT NULL DEFAULT '' COMMENT 'The unique id the layout.',
   `entity_type` varchar(32) NOT NULL DEFAULT '' COMMENT 'The name of the entity.',
   `bundle` varchar(64) NOT NULL DEFAULT '' COMMENT 'The name of the entity.',
@@ -633,7 +633,7 @@ CREATE TABLE IF NOT EXISTS `ds_layout_settings` (
 -- Table structure for table `ds_view_modes`
 --
 
-CREATE TABLE IF NOT EXISTS `ds_view_modes` (
+CREATE TABLE `ds_view_modes` (
   `view_mode` varchar(32) NOT NULL DEFAULT '' COMMENT 'The machine name of the view mode.',
   `label` varchar(32) NOT NULL DEFAULT '' COMMENT 'The label of the view mode.',
   `entities` longblob COMMENT 'The entities for this view mode.',
@@ -646,7 +646,7 @@ CREATE TABLE IF NOT EXISTS `ds_view_modes` (
 -- Table structure for table `field_config`
 --
 
-CREATE TABLE IF NOT EXISTS `field_config` (
+CREATE TABLE `field_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for a field',
   `field_name` varchar(32) NOT NULL COMMENT 'The name of this field. Non-deleted field names are unique, but multiple deleted fields can have the same name.',
   `type` varchar(128) NOT NULL COMMENT 'The type of this field.',
@@ -677,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `field_config` (
 -- Table structure for table `field_config_instance`
 --
 
-CREATE TABLE IF NOT EXISTS `field_config_instance` (
+CREATE TABLE `field_config_instance` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for a field instance',
   `field_id` int(11) NOT NULL COMMENT 'The identifier of the field attached by this instance',
   `field_name` varchar(32) NOT NULL DEFAULT '',
@@ -696,7 +696,7 @@ CREATE TABLE IF NOT EXISTS `field_config_instance` (
 -- Table structure for table `field_data_body`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_body` (
+CREATE TABLE `field_data_body` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -723,7 +723,7 @@ CREATE TABLE IF NOT EXISTS `field_data_body` (
 -- Table structure for table `field_data_comment_body`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_comment_body` (
+CREATE TABLE `field_data_comment_body` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -749,7 +749,7 @@ CREATE TABLE IF NOT EXISTS `field_data_comment_body` (
 -- Table structure for table `field_data_field_10_trial_link`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_10_trial_link` (
+CREATE TABLE `field_data_field_10_trial_link` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -775,7 +775,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_10_trial_link` (
 -- Table structure for table `field_data_field_about_us`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_about_us` (
+CREATE TABLE `field_data_field_about_us` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -801,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_about_us` (
 -- Table structure for table `field_data_field_address`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_address` (
+CREATE TABLE `field_data_field_address` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -827,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_address` (
 -- Table structure for table `field_data_field_call_out_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_call_out_image` (
+CREATE TABLE `field_data_field_call_out_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -856,7 +856,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_call_out_image` (
 -- Table structure for table `field_data_field_careers_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_careers_image` (
+CREATE TABLE `field_data_field_careers_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -885,7 +885,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_careers_image` (
 -- Table structure for table `field_data_field_client_icon`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_client_icon` (
+CREATE TABLE `field_data_field_client_icon` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -914,7 +914,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_client_icon` (
 -- Table structure for table `field_data_field_icon`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_icon` (
+CREATE TABLE `field_data_field_icon` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -943,7 +943,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_icon` (
 -- Table structure for table `field_data_field_icon_2`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_icon_2` (
+CREATE TABLE `field_data_field_icon_2` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -972,7 +972,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_icon_2` (
 -- Table structure for table `field_data_field_icon_3`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_icon_3` (
+CREATE TABLE `field_data_field_icon_3` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1001,7 +1001,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_icon_3` (
 -- Table structure for table `field_data_field_icon_4`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_icon_4` (
+CREATE TABLE `field_data_field_icon_4` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1030,7 +1030,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_icon_4` (
 -- Table structure for table `field_data_field_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_image` (
+CREATE TABLE `field_data_field_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1059,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_image` (
 -- Table structure for table `field_data_field_map_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_map_image` (
+CREATE TABLE `field_data_field_map_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1088,7 +1088,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_map_image` (
 -- Table structure for table `field_data_field_pdf_map`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_pdf_map` (
+CREATE TABLE `field_data_field_pdf_map` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1115,7 +1115,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_pdf_map` (
 -- Table structure for table `field_data_field_phone_number`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_phone_number` (
+CREATE TABLE `field_data_field_phone_number` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1141,7 +1141,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_phone_number` (
 -- Table structure for table `field_data_field_service_1`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_service_1` (
+CREATE TABLE `field_data_field_service_1` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1167,7 +1167,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_service_1` (
 -- Table structure for table `field_data_field_service_2`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_service_2` (
+CREATE TABLE `field_data_field_service_2` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1193,7 +1193,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_service_2` (
 -- Table structure for table `field_data_field_service_3`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_service_3` (
+CREATE TABLE `field_data_field_service_3` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1219,7 +1219,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_service_3` (
 -- Table structure for table `field_data_field_service_4`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_service_4` (
+CREATE TABLE `field_data_field_service_4` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1245,7 +1245,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_service_4` (
 -- Table structure for table `field_data_field_slide_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_slide_image` (
+CREATE TABLE `field_data_field_slide_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1274,7 +1274,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_slide_image` (
 -- Table structure for table `field_data_field_tags`
 --
 
-CREATE TABLE IF NOT EXISTS `field_data_field_tags` (
+CREATE TABLE `field_data_field_tags` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1299,7 +1299,7 @@ CREATE TABLE IF NOT EXISTS `field_data_field_tags` (
 -- Table structure for table `field_group`
 --
 
-CREATE TABLE IF NOT EXISTS `field_group` (
+CREATE TABLE `field_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for a group',
   `identifier` varchar(255) NOT NULL DEFAULT '' COMMENT 'The unique string identifier for a group.',
   `group_name` varchar(32) NOT NULL DEFAULT '' COMMENT 'The name of this group.',
@@ -1319,7 +1319,7 @@ CREATE TABLE IF NOT EXISTS `field_group` (
 -- Table structure for table `field_revision_body`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_body` (
+CREATE TABLE `field_revision_body` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1346,7 +1346,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_body` (
 -- Table structure for table `field_revision_comment_body`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_comment_body` (
+CREATE TABLE `field_revision_comment_body` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1372,7 +1372,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_comment_body` (
 -- Table structure for table `field_revision_field_10_trial_link`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_10_trial_link` (
+CREATE TABLE `field_revision_field_10_trial_link` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1398,7 +1398,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_10_trial_link` (
 -- Table structure for table `field_revision_field_about_us`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_about_us` (
+CREATE TABLE `field_revision_field_about_us` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1424,7 +1424,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_about_us` (
 -- Table structure for table `field_revision_field_address`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_address` (
+CREATE TABLE `field_revision_field_address` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1450,7 +1450,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_address` (
 -- Table structure for table `field_revision_field_call_out_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_call_out_image` (
+CREATE TABLE `field_revision_field_call_out_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1479,7 +1479,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_call_out_image` (
 -- Table structure for table `field_revision_field_careers_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_careers_image` (
+CREATE TABLE `field_revision_field_careers_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1508,7 +1508,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_careers_image` (
 -- Table structure for table `field_revision_field_client_icon`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_client_icon` (
+CREATE TABLE `field_revision_field_client_icon` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1537,7 +1537,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_client_icon` (
 -- Table structure for table `field_revision_field_icon`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_icon` (
+CREATE TABLE `field_revision_field_icon` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1566,7 +1566,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_icon` (
 -- Table structure for table `field_revision_field_icon_2`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_icon_2` (
+CREATE TABLE `field_revision_field_icon_2` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1595,7 +1595,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_icon_2` (
 -- Table structure for table `field_revision_field_icon_3`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_icon_3` (
+CREATE TABLE `field_revision_field_icon_3` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1624,7 +1624,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_icon_3` (
 -- Table structure for table `field_revision_field_icon_4`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_icon_4` (
+CREATE TABLE `field_revision_field_icon_4` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1653,7 +1653,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_icon_4` (
 -- Table structure for table `field_revision_field_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_image` (
+CREATE TABLE `field_revision_field_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1682,7 +1682,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_image` (
 -- Table structure for table `field_revision_field_map_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_map_image` (
+CREATE TABLE `field_revision_field_map_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1711,7 +1711,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_map_image` (
 -- Table structure for table `field_revision_field_pdf_map`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_pdf_map` (
+CREATE TABLE `field_revision_field_pdf_map` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1738,7 +1738,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_pdf_map` (
 -- Table structure for table `field_revision_field_phone_number`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_phone_number` (
+CREATE TABLE `field_revision_field_phone_number` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1764,7 +1764,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_phone_number` (
 -- Table structure for table `field_revision_field_service_1`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_service_1` (
+CREATE TABLE `field_revision_field_service_1` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1790,7 +1790,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_service_1` (
 -- Table structure for table `field_revision_field_service_2`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_service_2` (
+CREATE TABLE `field_revision_field_service_2` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1816,7 +1816,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_service_2` (
 -- Table structure for table `field_revision_field_service_3`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_service_3` (
+CREATE TABLE `field_revision_field_service_3` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1842,7 +1842,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_service_3` (
 -- Table structure for table `field_revision_field_service_4`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_service_4` (
+CREATE TABLE `field_revision_field_service_4` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1868,7 +1868,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_service_4` (
 -- Table structure for table `field_revision_field_slide_image`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_slide_image` (
+CREATE TABLE `field_revision_field_slide_image` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1897,7 +1897,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_slide_image` (
 -- Table structure for table `field_revision_field_tags`
 --
 
-CREATE TABLE IF NOT EXISTS `field_revision_field_tags` (
+CREATE TABLE `field_revision_field_tags` (
   `entity_type` varchar(128) NOT NULL DEFAULT '' COMMENT 'The entity type this data is attached to',
   `bundle` varchar(128) NOT NULL DEFAULT '' COMMENT 'The field instance bundle to which this row belongs, used when deleting a field instance',
   `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'A boolean indicating whether this data item has been deleted',
@@ -1922,7 +1922,7 @@ CREATE TABLE IF NOT EXISTS `field_revision_field_tags` (
 -- Table structure for table `file_managed`
 --
 
-CREATE TABLE IF NOT EXISTS `file_managed` (
+CREATE TABLE `file_managed` (
   `fid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'File ID.',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The users.uid of the user who is associated with the file.',
   `filename` varchar(255) NOT NULL DEFAULT '' COMMENT 'Name of the file with no path components. This may differ from the basename of the URI if the file is renamed to avoid overwriting an existing file.',
@@ -1944,7 +1944,7 @@ CREATE TABLE IF NOT EXISTS `file_managed` (
 -- Table structure for table `file_usage`
 --
 
-CREATE TABLE IF NOT EXISTS `file_usage` (
+CREATE TABLE `file_usage` (
   `fid` int(10) unsigned NOT NULL COMMENT 'File ID.',
   `module` varchar(255) NOT NULL DEFAULT '' COMMENT 'The name of the module that is using the file.',
   `type` varchar(64) NOT NULL DEFAULT '' COMMENT 'The name of the object type in which the file is used.',
@@ -1962,7 +1962,7 @@ CREATE TABLE IF NOT EXISTS `file_usage` (
 -- Table structure for table `filter`
 --
 
-CREATE TABLE IF NOT EXISTS `filter` (
+CREATE TABLE `filter` (
   `format` varchar(255) NOT NULL COMMENT 'Foreign key: The filter_format.format to which this filter is assigned.',
   `module` varchar(64) NOT NULL DEFAULT '' COMMENT 'The origin module of the filter.',
   `name` varchar(32) NOT NULL DEFAULT '' COMMENT 'Name of the filter being referenced.',
@@ -1979,7 +1979,7 @@ CREATE TABLE IF NOT EXISTS `filter` (
 -- Table structure for table `filter_format`
 --
 
-CREATE TABLE IF NOT EXISTS `filter_format` (
+CREATE TABLE `filter_format` (
   `format` varchar(255) NOT NULL COMMENT 'Primary Key: Unique machine name of the format.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'Name of the text format (Filtered HTML).',
   `cache` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'Flag to indicate whether format is cacheable. (1 = cacheable, 0 = not cacheable)',
@@ -1996,7 +1996,7 @@ CREATE TABLE IF NOT EXISTS `filter_format` (
 -- Table structure for table `flood`
 --
 
-CREATE TABLE IF NOT EXISTS `flood` (
+CREATE TABLE `flood` (
   `fid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique flood event ID.',
   `event` varchar(64) NOT NULL DEFAULT '' COMMENT 'Name of event (e.g. contact).',
   `identifier` varchar(128) NOT NULL DEFAULT '' COMMENT 'Identifier of the visitor, such as an IP address or hostname.',
@@ -2013,7 +2013,7 @@ CREATE TABLE IF NOT EXISTS `flood` (
 -- Table structure for table `history`
 --
 
-CREATE TABLE IF NOT EXISTS `history` (
+CREATE TABLE `history` (
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'The users.uid that read the node nid.',
   `nid` int(11) NOT NULL DEFAULT '0' COMMENT 'The node.nid that was read.',
   `timestamp` int(11) NOT NULL DEFAULT '0' COMMENT 'The Unix timestamp at which the read occurred.',
@@ -2027,7 +2027,7 @@ CREATE TABLE IF NOT EXISTS `history` (
 -- Table structure for table `image_effects`
 --
 
-CREATE TABLE IF NOT EXISTS `image_effects` (
+CREATE TABLE `image_effects` (
   `ieid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for an image effect.',
   `isid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The image_styles.isid for an image style.',
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT 'The weight of the effect in the style.',
@@ -2044,7 +2044,7 @@ CREATE TABLE IF NOT EXISTS `image_effects` (
 -- Table structure for table `image_styles`
 --
 
-CREATE TABLE IF NOT EXISTS `image_styles` (
+CREATE TABLE `image_styles` (
   `isid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for an image style.',
   `name` varchar(255) NOT NULL COMMENT 'The style machine name.',
   `label` varchar(255) NOT NULL DEFAULT '' COMMENT 'The style administrative name.',
@@ -2058,7 +2058,7 @@ CREATE TABLE IF NOT EXISTS `image_styles` (
 -- Table structure for table `menu_custom`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_custom` (
+CREATE TABLE `menu_custom` (
   `menu_name` varchar(32) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique key for menu. This is used as a block delta so length is 32.',
   `title` varchar(255) NOT NULL DEFAULT '' COMMENT 'Menu title; displayed at top of block.',
   `description` text COMMENT 'Menu description.',
@@ -2071,7 +2071,7 @@ CREATE TABLE IF NOT EXISTS `menu_custom` (
 -- Table structure for table `menu_links`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_links` (
+CREATE TABLE `menu_links` (
   `menu_name` varchar(32) NOT NULL DEFAULT '' COMMENT 'The menu name. All links with the same menu name (such as ’navigation’) are part of the same menu.',
   `mlid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The menu link ID (mlid) is the integer primary key.',
   `plid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The parent link ID (plid) is the mlid of the link above in the hierarchy, or zero if the link is at the top level in its menu.',
@@ -2110,7 +2110,7 @@ CREATE TABLE IF NOT EXISTS `menu_links` (
 -- Table structure for table `menu_router`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_router` (
+CREATE TABLE `menu_router` (
   `path` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: the Drupal path this entry describes',
   `load_functions` blob NOT NULL COMMENT 'A serialized array of function names (like node_load) to be called to load an object corresponding to a part of the current path.',
   `to_arg_functions` blob NOT NULL COMMENT 'A serialized array of function names (like user_uid_optional_to_arg) to be called to replace a part of the router path with another string.',
@@ -2146,7 +2146,7 @@ CREATE TABLE IF NOT EXISTS `menu_router` (
 -- Table structure for table `metatags_quick_path_based`
 --
 
-CREATE TABLE IF NOT EXISTS `metatags_quick_path_based` (
+CREATE TABLE `metatags_quick_path_based` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Entity id',
   `path` varchar(255) NOT NULL COMMENT 'The path of the page to apply meta tags to',
   `lang` varchar(8) NOT NULL COMMENT 'Language code',
@@ -2160,7 +2160,7 @@ CREATE TABLE IF NOT EXISTS `metatags_quick_path_based` (
 -- Table structure for table `node`
 --
 
-CREATE TABLE IF NOT EXISTS `node` (
+CREATE TABLE `node` (
   `nid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for a node.',
   `vid` int(10) unsigned DEFAULT NULL COMMENT 'The current node_revision.vid version identifier.',
   `type` varchar(32) NOT NULL DEFAULT '' COMMENT 'The node_type.type of this node.',
@@ -2194,7 +2194,7 @@ CREATE TABLE IF NOT EXISTS `node` (
 -- Table structure for table `node_access`
 --
 
-CREATE TABLE IF NOT EXISTS `node_access` (
+CREATE TABLE `node_access` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node.nid this record affects.',
   `gid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The grant ID a user must possess in the specified realm to gain this row’s privileges on the node.',
   `realm` varchar(255) NOT NULL DEFAULT '' COMMENT 'The realm in which the user must possess the grant ID. Each node access node can define one or more realms.',
@@ -2210,7 +2210,7 @@ CREATE TABLE IF NOT EXISTS `node_access` (
 -- Table structure for table `node_comment_statistics`
 --
 
-CREATE TABLE IF NOT EXISTS `node_comment_statistics` (
+CREATE TABLE `node_comment_statistics` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node.nid for which the statistics are compiled.',
   `cid` int(11) NOT NULL DEFAULT '0' COMMENT 'The comment.cid of the last comment.',
   `last_comment_timestamp` int(11) NOT NULL DEFAULT '0' COMMENT 'The Unix timestamp of the last comment that was posted within this node, from comment.changed.',
@@ -2229,7 +2229,7 @@ CREATE TABLE IF NOT EXISTS `node_comment_statistics` (
 -- Table structure for table `node_revision`
 --
 
-CREATE TABLE IF NOT EXISTS `node_revision` (
+CREATE TABLE `node_revision` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node this version belongs to.',
   `vid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The primary identifier for this version.',
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'The users.uid that created this version.',
@@ -2251,7 +2251,7 @@ CREATE TABLE IF NOT EXISTS `node_revision` (
 -- Table structure for table `node_type`
 --
 
-CREATE TABLE IF NOT EXISTS `node_type` (
+CREATE TABLE `node_type` (
   `type` varchar(32) NOT NULL COMMENT 'The machine-readable name of this type.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The human-readable name of this type.',
   `base` varchar(255) NOT NULL COMMENT 'The base string used to construct callbacks corresponding to this node type.',
@@ -2274,7 +2274,7 @@ CREATE TABLE IF NOT EXISTS `node_type` (
 -- Table structure for table `page_manager_handlers`
 --
 
-CREATE TABLE IF NOT EXISTS `page_manager_handlers` (
+CREATE TABLE `page_manager_handlers` (
   `did` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary ID field for the table. Not used for anything except internal lookups.',
   `name` varchar(255) DEFAULT NULL COMMENT 'Unique ID for this task handler. Used to identify it programmatically.',
   `task` varchar(64) DEFAULT NULL COMMENT 'ID of the task this handler is for.',
@@ -2293,7 +2293,7 @@ CREATE TABLE IF NOT EXISTS `page_manager_handlers` (
 -- Table structure for table `page_manager_pages`
 --
 
-CREATE TABLE IF NOT EXISTS `page_manager_pages` (
+CREATE TABLE `page_manager_pages` (
   `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary ID field for the table. Not used for anything except internal lookups.',
   `name` varchar(255) DEFAULT NULL COMMENT 'Unique ID for this subtask. Used to identify it programmatically.',
   `task` varchar(64) DEFAULT 'page' COMMENT 'What type of page this is, so that we can use the same mechanism for creating tighter UIs for targeted pages.',
@@ -2315,7 +2315,7 @@ CREATE TABLE IF NOT EXISTS `page_manager_pages` (
 -- Table structure for table `page_manager_weights`
 --
 
-CREATE TABLE IF NOT EXISTS `page_manager_weights` (
+CREATE TABLE `page_manager_weights` (
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'Unique ID for this task handler. Used to identify it programmatically.',
   `weight` int(11) DEFAULT NULL COMMENT 'The order in which this handler appears. Lower numbers go first.',
   PRIMARY KEY (`name`),
@@ -2328,7 +2328,7 @@ CREATE TABLE IF NOT EXISTS `page_manager_weights` (
 -- Table structure for table `page_title`
 --
 
-CREATE TABLE IF NOT EXISTS `page_title` (
+CREATE TABLE `page_title` (
   `type` varchar(15) NOT NULL DEFAULT 'node',
   `id` int(10) unsigned NOT NULL DEFAULT '0',
   `page_title` varchar(255) NOT NULL DEFAULT '',
@@ -2341,7 +2341,7 @@ CREATE TABLE IF NOT EXISTS `page_title` (
 -- Table structure for table `picture_mapping`
 --
 
-CREATE TABLE IF NOT EXISTS `picture_mapping` (
+CREATE TABLE `picture_mapping` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'The internal identifier for this mapping',
   `machine_name` varchar(255) NOT NULL COMMENT 'The machine name of the mapping',
   `breakpoint_group` varchar(255) NOT NULL COMMENT 'The group this mapping belongs to',
@@ -2355,7 +2355,7 @@ CREATE TABLE IF NOT EXISTS `picture_mapping` (
 -- Table structure for table `queue`
 --
 
-CREATE TABLE IF NOT EXISTS `queue` (
+CREATE TABLE `queue` (
   `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique item ID.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The queue name.',
   `data` longblob COMMENT 'The arbitrary data for the item.',
@@ -2372,7 +2372,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
 -- Table structure for table `rdf_mapping`
 --
 
-CREATE TABLE IF NOT EXISTS `rdf_mapping` (
+CREATE TABLE `rdf_mapping` (
   `type` varchar(128) NOT NULL COMMENT 'The name of the entity type a mapping applies to (node, user, comment, etc.).',
   `bundle` varchar(128) NOT NULL COMMENT 'The name of the bundle a mapping applies to.',
   `mapping` longblob COMMENT 'The serialized mapping of the bundle type and fields to RDF terms.',
@@ -2385,7 +2385,7 @@ CREATE TABLE IF NOT EXISTS `rdf_mapping` (
 -- Table structure for table `redirect`
 --
 
-CREATE TABLE IF NOT EXISTS `redirect` (
+CREATE TABLE `redirect` (
   `rid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique redirect ID.',
   `hash` varchar(64) NOT NULL COMMENT 'A unique hash based on source, source_options, and language.',
   `type` varchar(64) NOT NULL DEFAULT '' COMMENT 'The redirect type; if value is ’redirect’ it is a normal redirect handled by the module.',
@@ -2410,7 +2410,7 @@ CREATE TABLE IF NOT EXISTS `redirect` (
 -- Table structure for table `registry`
 --
 
-CREATE TABLE IF NOT EXISTS `registry` (
+CREATE TABLE `registry` (
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The name of the function, class, or interface.',
   `type` varchar(9) NOT NULL DEFAULT '' COMMENT 'Either function or class or interface.',
   `filename` varchar(255) NOT NULL COMMENT 'Name of the file.',
@@ -2426,7 +2426,7 @@ CREATE TABLE IF NOT EXISTS `registry` (
 -- Table structure for table `registry_file`
 --
 
-CREATE TABLE IF NOT EXISTS `registry_file` (
+CREATE TABLE `registry_file` (
   `filename` varchar(255) NOT NULL COMMENT 'Path to the file.',
   `hash` varchar(64) NOT NULL COMMENT 'sha-256 hash of the file’s contents when last parsed.',
   PRIMARY KEY (`filename`)
@@ -2438,7 +2438,7 @@ CREATE TABLE IF NOT EXISTS `registry_file` (
 -- Table structure for table `role`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
+CREATE TABLE `role` (
   `rid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique role ID.',
   `name` varchar(64) NOT NULL DEFAULT '' COMMENT 'Unique role name.',
   `weight` int(11) NOT NULL DEFAULT '0' COMMENT 'The weight of this role in listings and the user interface.',
@@ -2453,7 +2453,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 -- Table structure for table `role_permission`
 --
 
-CREATE TABLE IF NOT EXISTS `role_permission` (
+CREATE TABLE `role_permission` (
   `rid` int(10) unsigned NOT NULL COMMENT 'Foreign Key: role.rid.',
   `permission` varchar(128) NOT NULL DEFAULT '' COMMENT 'A single permission granted to the role identified by rid.',
   `module` varchar(255) NOT NULL DEFAULT '' COMMENT 'The module declaring the permission.',
@@ -2467,7 +2467,7 @@ CREATE TABLE IF NOT EXISTS `role_permission` (
 -- Table structure for table `search_dataset`
 --
 
-CREATE TABLE IF NOT EXISTS `search_dataset` (
+CREATE TABLE `search_dataset` (
   `sid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Search item ID, e.g. node ID for nodes.',
   `type` varchar(16) NOT NULL COMMENT 'Type of item, e.g. node.',
   `data` longtext NOT NULL COMMENT 'List of space-separated words from the item.',
@@ -2481,7 +2481,7 @@ CREATE TABLE IF NOT EXISTS `search_dataset` (
 -- Table structure for table `search_index`
 --
 
-CREATE TABLE IF NOT EXISTS `search_index` (
+CREATE TABLE `search_index` (
   `word` varchar(50) NOT NULL DEFAULT '' COMMENT 'The search_total.word that is associated with the search item.',
   `sid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The search_dataset.sid of the searchable item to which the word belongs.',
   `type` varchar(16) NOT NULL COMMENT 'The search_dataset.type of the searchable item to which the word belongs.',
@@ -2496,7 +2496,7 @@ CREATE TABLE IF NOT EXISTS `search_index` (
 -- Table structure for table `search_node_links`
 --
 
-CREATE TABLE IF NOT EXISTS `search_node_links` (
+CREATE TABLE `search_node_links` (
   `sid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The search_dataset.sid of the searchable item containing the link to the node.',
   `type` varchar(16) NOT NULL DEFAULT '' COMMENT 'The search_dataset.type of the searchable item containing the link to the node.',
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node.nid that this item links to.',
@@ -2511,7 +2511,7 @@ CREATE TABLE IF NOT EXISTS `search_node_links` (
 -- Table structure for table `search_total`
 --
 
-CREATE TABLE IF NOT EXISTS `search_total` (
+CREATE TABLE `search_total` (
   `word` varchar(50) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique word in the search index.',
   `count` float DEFAULT NULL COMMENT 'The count of the word in the index using Zipf’s law to equalize the probability distribution.',
   PRIMARY KEY (`word`)
@@ -2523,7 +2523,7 @@ CREATE TABLE IF NOT EXISTS `search_total` (
 -- Table structure for table `semaphore`
 --
 
-CREATE TABLE IF NOT EXISTS `semaphore` (
+CREATE TABLE `semaphore` (
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'Primary Key: Unique name.',
   `value` varchar(255) NOT NULL DEFAULT '' COMMENT 'A value for the semaphore.',
   `expire` double NOT NULL COMMENT 'A Unix timestamp with microseconds indicating when the semaphore should expire.',
@@ -2538,7 +2538,7 @@ CREATE TABLE IF NOT EXISTS `semaphore` (
 -- Table structure for table `sequences`
 --
 
-CREATE TABLE IF NOT EXISTS `sequences` (
+CREATE TABLE `sequences` (
   `value` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The value of the sequence.',
   PRIMARY KEY (`value`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores IDs.' AUTO_INCREMENT=3 ;
@@ -2549,7 +2549,7 @@ CREATE TABLE IF NOT EXISTS `sequences` (
 -- Table structure for table `sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `sessions` (
+CREATE TABLE `sessions` (
   `uid` int(10) unsigned NOT NULL COMMENT 'The users.uid corresponding to a session, or 0 for anonymous user.',
   `sid` varchar(128) NOT NULL COMMENT 'A session ID. The value is generated by Drupal’s session handlers.',
   `ssid` varchar(128) NOT NULL DEFAULT '' COMMENT 'Secure session ID. The value is generated by Drupal’s session handlers.',
@@ -2569,7 +2569,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 -- Table structure for table `shortcut_set`
 --
 
-CREATE TABLE IF NOT EXISTS `shortcut_set` (
+CREATE TABLE `shortcut_set` (
   `set_name` varchar(32) NOT NULL DEFAULT '' COMMENT 'Primary Key: The menu_links.menu_name under which the set’s links are stored.',
   `title` varchar(255) NOT NULL DEFAULT '' COMMENT 'The title of the set.',
   PRIMARY KEY (`set_name`)
@@ -2581,7 +2581,7 @@ CREATE TABLE IF NOT EXISTS `shortcut_set` (
 -- Table structure for table `shortcut_set_users`
 --
 
-CREATE TABLE IF NOT EXISTS `shortcut_set_users` (
+CREATE TABLE `shortcut_set_users` (
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The users.uid for this set.',
   `set_name` varchar(32) NOT NULL DEFAULT '' COMMENT 'The shortcut_set.set_name that will be displayed for this user.',
   PRIMARY KEY (`uid`),
@@ -2594,7 +2594,7 @@ CREATE TABLE IF NOT EXISTS `shortcut_set_users` (
 -- Table structure for table `system`
 --
 
-CREATE TABLE IF NOT EXISTS `system` (
+CREATE TABLE `system` (
   `filename` varchar(255) NOT NULL DEFAULT '' COMMENT 'The path of the primary file for this item, relative to the Drupal root; e.g. modules/node/node.module.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The name of the item; e.g. node.',
   `type` varchar(12) NOT NULL DEFAULT '' COMMENT 'The type of the item, either module, theme, or theme_engine.',
@@ -2615,7 +2615,7 @@ CREATE TABLE IF NOT EXISTS `system` (
 -- Table structure for table `taxonomy_index`
 --
 
-CREATE TABLE IF NOT EXISTS `taxonomy_index` (
+CREATE TABLE `taxonomy_index` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node.nid this record tracks.',
   `tid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The term ID.',
   `sticky` tinyint(4) DEFAULT '0' COMMENT 'Boolean indicating whether the node is sticky.',
@@ -2630,7 +2630,7 @@ CREATE TABLE IF NOT EXISTS `taxonomy_index` (
 -- Table structure for table `taxonomy_term_data`
 --
 
-CREATE TABLE IF NOT EXISTS `taxonomy_term_data` (
+CREATE TABLE `taxonomy_term_data` (
   `tid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique term ID.',
   `vid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The taxonomy_vocabulary.vid of the vocabulary to which the term is assigned.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The term name.',
@@ -2649,7 +2649,7 @@ CREATE TABLE IF NOT EXISTS `taxonomy_term_data` (
 -- Table structure for table `taxonomy_term_hierarchy`
 --
 
-CREATE TABLE IF NOT EXISTS `taxonomy_term_hierarchy` (
+CREATE TABLE `taxonomy_term_hierarchy` (
   `tid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: The taxonomy_term_data.tid of the term.',
   `parent` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: The taxonomy_term_data.tid of the term’s parent. 0 indicates no parent.',
   PRIMARY KEY (`tid`,`parent`),
@@ -2662,7 +2662,7 @@ CREATE TABLE IF NOT EXISTS `taxonomy_term_hierarchy` (
 -- Table structure for table `taxonomy_vocabulary`
 --
 
-CREATE TABLE IF NOT EXISTS `taxonomy_vocabulary` (
+CREATE TABLE `taxonomy_vocabulary` (
   `vid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique vocabulary ID.',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT 'Name of the vocabulary.',
   `machine_name` varchar(255) NOT NULL DEFAULT '' COMMENT 'The vocabulary machine name.',
@@ -2681,7 +2681,7 @@ CREATE TABLE IF NOT EXISTS `taxonomy_vocabulary` (
 -- Table structure for table `url_alias`
 --
 
-CREATE TABLE IF NOT EXISTS `url_alias` (
+CREATE TABLE `url_alias` (
   `pid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'A unique path alias identifier.',
   `source` varchar(255) NOT NULL DEFAULT '' COMMENT 'The Drupal path this alias is for; e.g. node/12.',
   `alias` varchar(255) NOT NULL DEFAULT '' COMMENT 'The alias for this path; e.g. title-of-the-story.',
@@ -2697,7 +2697,7 @@ CREATE TABLE IF NOT EXISTS `url_alias` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: Unique user ID.',
   `name` varchar(60) NOT NULL DEFAULT '' COMMENT 'Unique user name.',
   `pass` varchar(128) NOT NULL DEFAULT '' COMMENT 'User’s password (hashed).',
@@ -2728,7 +2728,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Table structure for table `users_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `users_roles` (
+CREATE TABLE `users_roles` (
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: users.uid for user.',
   `rid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: role.rid for role.',
   PRIMARY KEY (`uid`,`rid`),
@@ -2741,7 +2741,7 @@ CREATE TABLE IF NOT EXISTS `users_roles` (
 -- Table structure for table `variable`
 --
 
-CREATE TABLE IF NOT EXISTS `variable` (
+CREATE TABLE `variable` (
   `name` varchar(128) NOT NULL DEFAULT '' COMMENT 'The name of the variable.',
   `value` longblob NOT NULL COMMENT 'The value of the variable.',
   PRIMARY KEY (`name`)
@@ -2753,7 +2753,7 @@ CREATE TABLE IF NOT EXISTS `variable` (
 -- Table structure for table `views_display`
 --
 
-CREATE TABLE IF NOT EXISTS `views_display` (
+CREATE TABLE `views_display` (
   `vid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The view this display is attached to.',
   `id` varchar(64) NOT NULL DEFAULT '' COMMENT 'An identifier for this display; usually generated from the display_plugin, so should be something like page or page_1 or block_2, etc.',
   `display_title` varchar(64) NOT NULL DEFAULT '' COMMENT 'The title of the display, viewable by the administrator.',
@@ -2770,7 +2770,7 @@ CREATE TABLE IF NOT EXISTS `views_display` (
 -- Table structure for table `views_view`
 --
 
-CREATE TABLE IF NOT EXISTS `views_view` (
+CREATE TABLE `views_view` (
   `vid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The view ID of the field, defined by the database.',
   `name` varchar(128) NOT NULL DEFAULT '' COMMENT 'The unique name of the view. This is the primary field views are loaded from, and is used so that views may be internal and not necessarily in the database. May only be alphanumeric characters plus underscores.',
   `description` varchar(255) DEFAULT '' COMMENT 'A description of the view for the admin interface.',
@@ -2788,7 +2788,7 @@ CREATE TABLE IF NOT EXISTS `views_view` (
 -- Table structure for table `watchdog`
 --
 
-CREATE TABLE IF NOT EXISTS `watchdog` (
+CREATE TABLE `watchdog` (
   `wid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key: Unique watchdog event ID.',
   `uid` int(11) NOT NULL DEFAULT '0' COMMENT 'The users.uid of the user who triggered the event.',
   `type` varchar(64) NOT NULL DEFAULT '' COMMENT 'Type of log message, for example "user" or "page not found."',
@@ -2804,7 +2804,7 @@ CREATE TABLE IF NOT EXISTS `watchdog` (
   KEY `type` (`type`),
   KEY `uid` (`uid`),
   KEY `severity` (`severity`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Table that contains logs of all system events.' AUTO_INCREMENT=410 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Table that contains logs of all system events.' AUTO_INCREMENT=422 ;
 
 -- --------------------------------------------------------
 
@@ -2812,7 +2812,7 @@ CREATE TABLE IF NOT EXISTS `watchdog` (
 -- Table structure for table `webform`
 --
 
-CREATE TABLE IF NOT EXISTS `webform` (
+CREATE TABLE `webform` (
   `nid` int(10) unsigned NOT NULL COMMENT 'The node identifier of a webform.',
   `confirmation` text NOT NULL COMMENT 'The confirmation message or URL displayed to the user after submitting a form.',
   `confirmation_format` varchar(255) DEFAULT NULL COMMENT 'The filter_format.format of the confirmation message.',
@@ -2837,7 +2837,7 @@ CREATE TABLE IF NOT EXISTS `webform` (
 -- Table structure for table `webform_component`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_component` (
+CREATE TABLE `webform_component` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `cid` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'The identifier for this component within this node, starts at 0 for each node.',
   `pid` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'If this component has a parent fieldset, the cid of that component.',
@@ -2857,7 +2857,7 @@ CREATE TABLE IF NOT EXISTS `webform_component` (
 -- Table structure for table `webform_emails`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_emails` (
+CREATE TABLE `webform_emails` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `eid` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'The e-mail identifier for this row’s settings.',
   `email` text COMMENT 'The e-mail address that will be sent to upon submission. This may be an e-mail address, the special key "default" or a numeric value. If a numeric value is used, the value of a component will be substituted on submission.',
@@ -2877,7 +2877,7 @@ CREATE TABLE IF NOT EXISTS `webform_emails` (
 -- Table structure for table `webform_last_download`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_last_download` (
+CREATE TABLE `webform_last_download` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The user identifier.',
   `sid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The last downloaded submission number.',
@@ -2891,7 +2891,7 @@ CREATE TABLE IF NOT EXISTS `webform_last_download` (
 -- Table structure for table `webform_roles`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_roles` (
+CREATE TABLE `webform_roles` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `rid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The role identifier.',
   PRIMARY KEY (`nid`,`rid`)
@@ -2903,7 +2903,7 @@ CREATE TABLE IF NOT EXISTS `webform_roles` (
 -- Table structure for table `webform_submissions`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_submissions` (
+CREATE TABLE `webform_submissions` (
   `sid` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'The unique identifier for this submission.',
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The id of the user that completed this submission.',
@@ -2922,7 +2922,7 @@ CREATE TABLE IF NOT EXISTS `webform_submissions` (
 -- Table structure for table `webform_submitted_data`
 --
 
-CREATE TABLE IF NOT EXISTS `webform_submitted_data` (
+CREATE TABLE `webform_submitted_data` (
   `nid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The node identifier of a webform.',
   `sid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'The unique identifier for this submission.',
   `cid` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'The identifier for this component within this node, starts at 0 for each node.',
@@ -2939,7 +2939,7 @@ CREATE TABLE IF NOT EXISTS `webform_submitted_data` (
 -- Table structure for table `xmlsitemap`
 --
 
-CREATE TABLE IF NOT EXISTS `xmlsitemap` (
+CREATE TABLE `xmlsitemap` (
   `id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary key with type; a unique id for the item.',
   `type` varchar(32) NOT NULL DEFAULT '' COMMENT 'Primary key with id; the type of item (e.g. node, user, etc.).',
   `subtype` varchar(128) NOT NULL DEFAULT '' COMMENT 'A sub-type identifier for the link (node type, menu name, term VID, etc.).',
@@ -2966,7 +2966,7 @@ CREATE TABLE IF NOT EXISTS `xmlsitemap` (
 -- Table structure for table `xmlsitemap_sitemap`
 --
 
-CREATE TABLE IF NOT EXISTS `xmlsitemap_sitemap` (
+CREATE TABLE `xmlsitemap_sitemap` (
   `smid` varchar(64) NOT NULL COMMENT 'The sitemap ID (the hashed value of xmlsitemap.context.',
   `context` text NOT NULL COMMENT 'Serialized array with the sitemaps context',
   `updated` int(10) unsigned NOT NULL DEFAULT '0',
