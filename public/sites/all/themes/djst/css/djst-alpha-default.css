@@ -119,10 +119,7 @@
 
 /*Footer*/
 
-footer {
-	background: black;
-	text-transform: uppercase;
-}
+
 
 #block-delta-blocks-logo {
 	float:left;
@@ -134,10 +131,6 @@ footer {
 	height:auto;
 }
 
-
-footer a:link, footer a:visited {
-	color: white;
-}
 .footer-title {
 	font-size: 30px;
 	font-weight:600;
@@ -145,13 +138,6 @@ footer a:link, footer a:visited {
 	margin:12px 0;
 	
 }
-footer h4 {
-	text-align: left;
-	color:white;
-	margin-bottom:0;
-	line-height: 1;
-}
-footer h4:before {display: none;}
 
 footer .grid-14, #footer-email, #footer-fax {margin-left:20px !important; }
 
@@ -164,7 +150,5 @@ footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:16px;}
 .footer-copyright p {
 	font-size: 14px;
 }
-
-#block-delta-blocks-logo img {width:100%; height:auto;}
 
 
