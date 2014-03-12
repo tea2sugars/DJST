@@ -140,7 +140,8 @@ a:hover, a.active {
 	box-shadow:none;
 	padding:6px 0;
 	font-size: 20px;
-	text-transform: uppercase;
+	font-family: open-serif;
+	font-style: italic;
 }
 
 /*Structure*/
@@ -255,6 +256,9 @@ footer a:link, footer a:visited {
 .view-clients .grid-4 {width:48%; float:left; margin:0 1%;}
 .view-clients .grid-4 img {width:100%; height:auto;}
 .view-clients .grid-4 h5 {height:60px; font-size: 14px;}
+
+input[type="email"], input[type="text"] {width:100%;}
+
 
 
 
