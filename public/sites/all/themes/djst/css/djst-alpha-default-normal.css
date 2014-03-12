@@ -1,13 +1,18 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
- 
- #block-block-6 {display: none;}
+
+#zone-content {width:960px;}
+#region-content {width:960px;}
+
+.navigation {
+	 	display: inherit;
+}
+
+#block-block-6 {display: none;}
  .navigation {
- 	display: inherit;
 	border-top:1px solid black;
 	border-bottom:1px solid black;
-	
 }
 
 .navigation li {
@@ -19,4 +24,25 @@
 	font-weight: 	600;
 	text-transform: uppercase;
 	text-decoration:none;
+}
+
+.logo-img img {
+	width:192px;
+	height:auto;
+}
+
+#region-sidebar-first p {
+	padding:6px 0 6px 47px;
+	margin-left:12px;
+	margin-top:			0px;
+	font-size: 16px;
+}
+
+#region-sidebar-second p {
+	margin-right:		12px;
+	margin-top:			0px;
+	padding:			6px 0 6px 59px;
+	font-size: 16px;
+
+
 }

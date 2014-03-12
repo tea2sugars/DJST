@@ -123,15 +123,26 @@ a:hover, a.active {
 .logo-img {
 	margin:12px 0 12px 0;
 	float: none;
-	
+}
+
+.logo-img img {
+	width:112px;
+	height:auto;
 }
 
 /*Navigation*/
 
-.navigation {display: none;}
+.navigation, #region-sidebar-first, #region-sidebar-second {display: none;}
 
 /*Mobile Nav*/
-#block-block-6 {}
+.responsive-menus.responsified span.toggler {
+	background:black;
+	border-radius:0px;
+	box-shadow:none;
+	padding:6px 0;
+	font-size: 20px;
+	text-transform: uppercase;
+}
 
 /*Structure*/
 .grey-section, #block-block-3 {
