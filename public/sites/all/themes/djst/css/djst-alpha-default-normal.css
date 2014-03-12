@@ -43,6 +43,12 @@
 	margin-top:			0px;
 	padding:			6px 0 6px 59px;
 	font-size: 16px;
-
-
 }
+
+.view-clients .views-row {
+	margin: 0 6px 24px 6px;
+}
+
+.view-clients .grid-4 h5 {font-size: 18px;}
+
+.view-clients .grid-4 img {width:165px; height:auto;}

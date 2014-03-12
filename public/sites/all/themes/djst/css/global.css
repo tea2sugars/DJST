@@ -68,13 +68,12 @@ h1, h2, h3, h4 {
 	letter-spacing: 0.025em;
 }
 
-h1, h2 			{font-size:28px; line-height:1.16666; margin:12px auto 24px auto; max-width:90%; }
+h1, h2 			{font-size:30px; line-height:1.25; margin:12px auto 24px auto; max-width:95%; }
 h3 				{font-size:20px; line-height:1.2; margin-bottom:12px;}
 h4,h5, h6 		{font-size:18px; line-height:1.333; margin-bottom:12px; text-transform: uppercase;} 
 
 h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative margin counteracts the :before margin ensuring title is centered*/
 
-h5 {height:50px;}
 
 .site-name-slogan {width:100%;}
 
@@ -91,6 +90,7 @@ p {
 	line-height:1.333em;
 	margin-bottom: 24px;
 	font-weight:400;
+	text-align: justify;
 	}
 
 li {
@@ -164,14 +164,14 @@ a:hover, a.active {
 	margin-bottom: 24px;
 }
 
-.field-name-field-call-out-image img {
+.field-name-field-call-out-image img, .block-testimonial-slideshow-block img, #block-views-careers-block img {
 	width: 100%;
 	height:auto;
 }
 
-#node_homepage_full_group_col1 {margin-left:12px;}
-#node_homepage_full_group_col2 {margin-left:12px;}
-#node_homepage_full_group_col3 {margin:0 12px;}
+#node_homepage_full_group_col1 {margin-left:0;}
+#node_homepage_full_group_col2 {margin-left:0;}
+#node_homepage_full_group_col3 {margin:0;}
 
 #node_homepage_full_group_appointment_settings .field-type-image {
 	margin-bottom:24px;
@@ -203,6 +203,10 @@ footer {
 	background: black;
 	text-transform: uppercase;
 
+}
+
+footer p {
+	text-align: left;
 }
 
 footer h4 {
@@ -242,4 +246,15 @@ footer a:link, footer a:visited {
 .col-4 h5 {
 	margin-top:24px;
 }
+
+.view-contact img {
+	width:100%;
+	height:auto;
+}
+
+.view-clients .grid-4 {width:48%; float:left; margin:0 1%;}
+.view-clients .grid-4 img {width:100%; height:auto;}
+.view-clients .grid-4 h5 {height:60px; font-size: 14px;}
+
+
 

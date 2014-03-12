@@ -21,6 +21,7 @@ h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative
 
 h5 {height:50px;}
 
+
 .site-name-slogan {width:100%;}
 
 h6.site-slogan {
@@ -126,16 +127,9 @@ li {
 	margin-left:3em; 
 	margin-right:3em;}
 
+
 .view-clients .views-row {
-	margin-bottom:24px;
-}
-
-.view-clients .views-row-2, .view-clients .views-row-6, .view-clients .views-row-10 {
-	margin:0 0 0 20px;
-}
-
-.view-clients .views-row-3, .view-clients .views-row-7, .view-clients .views-row-11 {
-	margin:0 20px;
+	margin: 0 12px 24px 12px;
 }
 
 /*webform*/
@@ -205,5 +199,8 @@ footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:16px;}
 .footer-copyright p {
 	font-size: 14px;
 }
+
+
+
 
 
