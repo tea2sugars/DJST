@@ -109,7 +109,7 @@ a:hover, a.active {
 	
 }
 
-.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
+.grey-section h1, .grey-section h2, .grey-section h3, .grey-section h4, .grey-section h5, .grey-section h6, .grey-section p, .grey-section li, .grey-section a:link, .grey-section a:visited, #block-block-3 a:link, #block-block-3 a:visited, #block-block-3 h1, #block-block-3 h2, #block-block-3 h3, #block-block-3 h4, #block-block-3 h5, #block-block-3 h6, #block-block-3 p, #block-block-3 li {
 	color:white;
 }
 

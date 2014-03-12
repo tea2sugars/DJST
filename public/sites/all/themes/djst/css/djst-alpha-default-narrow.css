@@ -3,6 +3,9 @@
  *  apply to the normal and widescreen layouts. You may override these styles in the normal 
  *  and widescreen CSS files as appropriate. */
  
+ #zone-content {width:100%;}
+#region-content {margin:0; width:100%;}
+
 .contact-left {
 	float:left;
 	width:45%;
