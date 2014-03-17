@@ -49,6 +49,10 @@
 	margin: 0 6px 24px 6px;
 }
 
+#node_homepage_full_group_col1 {
+	margin-left: 0;
+}
+
 .view-clients .grid-4 h5 {font-size: 18px;}
 
 .view-clients .grid-4 img {width:165px; height:auto;}

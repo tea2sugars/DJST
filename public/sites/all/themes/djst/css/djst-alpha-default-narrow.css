@@ -23,14 +23,13 @@ h1, h2 			{font-size:28px; line-height:1.167;}
 .footer-title {font-size: 24px;}
 footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:14px;}
 
-#node_homepage_full_group_col2 {margin-left:20px;}
-#node_homepage_full_group_col3 {margin-left:20px;}
-#node_homepage_full_group_col4 {margin-left:20px;}
+#node_homepage_full_group_col1, #node_homepage_full_group_col2, #node_homepage_full_group_col3, #node_homepage_full_group_col4 {margin-left:20px;}
 
 #node_homepage_full_group_appointment_settings .grid-4 img {
 	height:auto;
 	width:100%;
 }
+
 
 .view-clients .grid-4 {width:48%; float:left; margin:0 1.5%;}
 .view-clients .grid-4 img {width:100%; height:auto;}
