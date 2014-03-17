@@ -264,6 +264,10 @@ input[type="email"], input[type="text"] {width:100%;}
 	height:auto;
 }
 
+a.button {border: 1px dashed black; background:#C72C3B; color:white; display: block; padding:12px 24px; margin:0 auto; text-align: center; text-decoration: none; text-transform: uppercase; width: 70%;}
+a.button:visited, a.button:active {background:#a10000; color: white;}
+a.button:hover {text-decoration: underline;}
+
 
 
 
