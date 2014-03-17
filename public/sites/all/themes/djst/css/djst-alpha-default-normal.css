@@ -58,3 +58,7 @@
 .view-clients .grid-4 img {width:165px; height:auto;}
 
 input[type="email"], input[type="text"] {width:300px;}
+
+#block-block-9 {
+	display: none;
+}

@@ -259,6 +259,11 @@ footer a:link, footer a:visited {
 
 input[type="email"], input[type="text"] {width:100%;}
 
+.not-front .field-name-field-image img {
+	width:100%;
+	height:auto;
+}
+
 
 
 
