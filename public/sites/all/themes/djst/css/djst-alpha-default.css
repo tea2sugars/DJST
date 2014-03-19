@@ -14,8 +14,8 @@ h1, h2, h3, h4 {
 }
 
 h1, h2 			{font-size:36px; line-height:1.125; margin:12px auto; max-width:80%; }
-h3 				{font-size:20px; line-height:1.2em; margin-bottom:12px;}
-h4,h5, h6 		{font-size:18px; line-height:1.333em; margin-bottom:12px; text-transform: uppercase;} 
+h3 				{font-size:20px; line-height:1.2; margin-bottom:12px;}
+h4,h5, h6 		{font-size:18px; line-height:1.333; margin-bottom:12px; text-transform: uppercase;} 
 
 h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative margin counteracts the :before margin ensuring title is centered*/
 
@@ -33,10 +33,13 @@ h6.site-slogan {
 
 
 p {
-	font-size:18px;
-	line-height:1.333em;
+	font-size:16px;
+	line-height:1.5;
 	margin-bottom: 24px;
-	font-weight:400;
+	font-weight:300;
+	text-align: justify;
+	word-wrap: break-word;
+	font-family: 'Open Sans', sans-serif;
 	}
 
 li {
@@ -109,11 +112,11 @@ li {
 	-moz-column-count:2; 	
 	-webkit-column-count:2; 
 	column-count:2;
-	-moz-column-gap:36px; 
-	-webkit-column-gap:36px; 
-	column-gap:36px;
-	margin-bottom:36px;
-	
+	-moz-column-gap:24px; 
+	-webkit-column-gap:24px; 
+	column-gap:24px;
+	margin-bottom:24px;
+	orphans: 3;	
 }
 
 .two-col-text p+p {

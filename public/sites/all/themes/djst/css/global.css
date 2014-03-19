@@ -1,6 +1,6 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700,800);
 
 /*------------------------------------*\
   RESET
@@ -51,56 +51,7 @@ body {
 
 
 
-/*------------------------------------*\
-  TYPE
-\*------------------------------------*/
-h1, h2, h3, h4, h5, h6  {
-	color:black;
-	font-family: 'Josefin Sans', arial, sans-serif;
-}
 
-h1, h2, h3, h4, h5 {
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: 700;
-}
-
-h1, h2, h3, h4 {
-	letter-spacing: 0.025em;
-}
-
-h1, h2 			{font-size:30px; line-height:1.25; margin:12px auto 24px auto; max-width:95%; }
-h3 				{font-size:20px; line-height:1.2; margin-bottom:12px;}
-h4,h5, h6 		{font-size:18px; line-height:1.333; margin-bottom:12px; text-transform: uppercase;} 
-
-h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative margin counteracts the :before margin ensuring title is centered*/
-
-
-.site-name-slogan {width:100%;}
-
-h6.site-slogan {
-	font-family: open-serif;
-	font-style: italic;
-	margin:0 auto 24px auto;
-	text-transform: lowercase;
-	width:100%;  }
-
-
-p {
-	font-size:13px;
-	line-height:1.712em;
-	margin-bottom: 24px;
-	font-weight:300;
-	text-align: justify;
-	word-wrap: break-word;
-	font-family: 'Open Sans', sans-serif;
-
-	}
-
-li {
-	font-size:1em;
-	margin-bottom: 12px;
-}
 
 a:link, a:visited {
 	color:black;
