@@ -1,6 +1,6 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
 
 /*------------------------------------*\
   RESET
@@ -42,10 +42,11 @@ abbr, acronym {
 body {
 	background: rgb(225,220,210);
 	color:black;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Josefin Sans', arial, sans-serif;
 	font-size:1em; /*16px*/
 	line-height: 1.5em;
-
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing:antialiased;
 }
 
 
@@ -55,7 +56,7 @@ body {
 \*------------------------------------*/
 h1, h2, h3, h4, h5, h6  {
 	color:black;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Josefin Sans', arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -86,11 +87,14 @@ h6.site-slogan {
 
 
 p {
-	font-size:18px;
-	line-height:1.333em;
+	font-size:13px;
+	line-height:1.712em;
 	margin-bottom: 24px;
-	font-weight:400;
+	font-weight:300;
 	text-align: justify;
+	word-wrap: break-word;
+	font-family: 'Open Sans', sans-serif;
+
 	}
 
 li {
