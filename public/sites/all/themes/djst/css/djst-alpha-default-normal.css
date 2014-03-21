@@ -21,7 +21,7 @@
 }
 
 .navigation li a:link, .navigation li a:visited {
-	font-weight: 	600;
+	font-weight: 	400;
 	text-transform: uppercase;
 	text-decoration:none;
 }
@@ -32,17 +32,20 @@
 }
 
 #region-sidebar-first p {
-	padding:6px 0 6px 47px;
-	margin-left:12px;
+	padding:			6px 0 6px 47px;
+	margin-left:		12px;
 	margin-top:			0px;
-	font-size: 16px;
+	font-size: 			16px;
+	font-family: 		'Sanchez', serif;
+
 }
 
 #region-sidebar-second p {
 	margin-right:		12px;
 	margin-top:			0px;
 	padding:			6px 0 6px 59px;
-	font-size: 16px;
+	font-size: 			16px;
+	font-family: 		'Sanchez', serif;
 }
 
 .view-clients .views-row {
@@ -53,12 +56,23 @@
 	margin-left: 0;
 }
 
-.view-clients .grid-4 h5 {font-size: 18px;}
-
 .view-clients .grid-4 img {width:165px; height:auto;}
 
 input[type="email"], input[type="text"] {width:300px;}
 
 #block-block-9 {
 	display: none;
+}
+
+#node_homepage_full_group_appointment_settings .field-type-text-long p {
+	font-size:			16px;
+	margin-bottom: 		24px;
+	line-height: 		24px;
+}
+
+.view-clients .grid-4 h5 {height:48px; font-size: 16px;}
+
+#block-views-clients-block p {
+	text-align: 				center;
+	width:						80%;
 }

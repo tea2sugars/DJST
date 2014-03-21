@@ -5,6 +5,9 @@
  
 h1, h2 			{font-size:28px; line-height:1.167;}
 
+#zone-content {width:768px;}
+#region-content {width:768px;}
+
 .contact-left {
 	float:left;
 	width:45%;
@@ -17,11 +20,17 @@ h1, h2 			{font-size:28px; line-height:1.167;}
 
 /*Footer*/
 #block-delta-blocks-logo {
-	width:70px;
+		width:			70px;
 }
 
-.footer-title {font-size: 24px;}
-footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:14px;}
+.footer-title {
+		font-size: 		24px;
+}
+
+footer p, #footer-phone p, #footer-email p, #footer-fax p {
+		font-size:		14px;
+		color:			white;
+}
 
 #node_homepage_full_group_col1, #node_homepage_full_group_col2, #node_homepage_full_group_col3, #node_homepage_full_group_col4 {margin-left:20px;}
 
@@ -30,10 +39,16 @@ footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:14px;}
 	width:100%;
 }
 
+#node_homepage_full_group_appointment_settings .field-type-text-long p {
+	font-size:			13px;
+	margin-bottom: 		24px;
+	line-height: 		18px;
+}
+
 
 .view-clients .grid-4 {width:48%; float:left; margin:0 1.5%;}
 .view-clients .grid-4 img {width:100%; height:auto;}
-.view-clients .grid-4 h5 {height:40px; font-size: 16px;}
+.view-clients .grid-4 h5 {height:60px; font-size: 16px;}
 
 .view-contact p {
 	text-align: left;

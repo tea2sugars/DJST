@@ -1,6 +1,5 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700,800);
 
 /*------------------------------------*\
   RESET
@@ -37,68 +36,140 @@ abbr, acronym {
   border: 0;
 }
 
-/*--END OF RESET--*/
+/*--END OF RESET--
+	
+	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sanchez', serif;
+	
+*/
 
 body {
-	background: rgb(225,220,210);
-	color:black;
-	font-family: 'Josefin Sans', arial, sans-serif;
-	font-size:1em; /*16px*/
-	line-height: 1.5em;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing:antialiased;
+	background: 				rgb(225,220,210);
+	color:						black;
+	font-family: 				'Open Sans', sans-serif;
+	font-size:					1em; /*16px*/
+	line-height: 				1.5em;
+	-moz-osx-font-smoothing: 	grayscale;
+	-webkit-font-smoothing:		antialiased;
 }
 
-h1, h2, h3, h4, h5, h6  {
-	color:black;
-	font-family: 'Josefin Sans', sans-serif;
+h1, h2 {
+	color:						#222;
+	font-family:				'Josefin Sans', sans-serif;
+	font-size:					32px;
+	font-weight: 				700;
+	letter-spacing: 			0.025em;
+	line-height: 				36px;
+	margin:						12px auto;
+	max-width:					20em;
+	text-align: 				center;
+	text-transform: 			uppercase;
 }
 
-h1, h2, h3, h4, h5 {
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: 700;
+h3 {
+	color:						#222;
+	font-family:				'Open Sans', sans-serif;
+	font-size:					20px;
+	font-weight: 				400;
+	letter-spacing: 			0.025em;
+	line-height: 				24px;
+	margin:						24px auto 12px auto;
+	max-width:					20em;
+	text-align: 				center;
+	text-transform: 			uppercase;	
 }
 
-h1, h2, h3, h4 {
-	letter-spacing: 0.025em;
+h4 {
+	color:						#222;
+	font-family: 				'Sanchez', serif;
+	font-size:					16px;
+	font-weight: 				400;
+	letter-spacing: 			0.025em;
+	line-height: 				24px;
+	margin:						0 auto 12px auto;
+	max-width:					20em;
+	text-align: 				center;
+	text-transform: 			uppercase;
 }
 
-h1, h2 			{font-size:36px; line-height:1.125; margin:12px auto; max-width:80%; }
-h3 				{font-size:20px; line-height:1.2; margin-bottom:12px;}
-h4,h5, h6 		{font-size:18px; line-height:1.333; margin-bottom:12px; text-transform: uppercase;} 
+h4:before {
+	content:					url(../images/H4_divider.png);
+	margin:						0 0 0 -24px; /*Negative margin counteracts the :before margin ensuring title is centered*/
+} 
 
-h4:before {content:url(../images/H4_divider.png); margin:0 0 0 -24px} /*Negative margin counteracts the :before margin ensuring title is centered*/
+h5 {
+	color:						#222;
+	font-family:				'Open Sans', sans-serif;
+	font-size:					18px;
+	font-weight: 				600;
+	height:						40px;
+	letter-spacing: 			0.001em;
+	line-height: 				24px;
+	margin:						12px auto;
+	max-width:					20em;
+	text-align: 				center;
+	text-transform: 			uppercase;	
+}
 
-h5 {height:50px;}
-
-
-.site-name-slogan {width:100%;}
+h6 {
+	color:						#222;
+	font-family: 				'Open Sans', sans-serif;
+	font-size:					16px;
+	font-weight:				400;
+	line-height:				24px;
+}
 
 h6.site-slogan {
-	font-family: open-serif;
-	font-style: italic;
-	margin:0 auto 24px auto;
-	text-transform: lowercase;
-	width:100%;  }
-
-
-p {
-	font-size:16px;
-	line-height:1.5;
-	margin-bottom: 24px;
-	font-weight:300;
-	text-align: justify;
-	word-wrap: break-word;
-	font-family: 'Open Sans', sans-serif;
-	}
-
-li {
-	font-size:1em;
-	margin-bottom: 12px;
+	font-family: 				'Sanchez', serif;
+	font-style: 				italic;
+	letter-spacing: 			0.01em;
+	margin:						0 auto 24px auto;
+	text-transform: 			lowercase;
+	width:						100%;  
 }
 
+.site-name-slogan {
+	width:						100%;
+}
 
+p {
+	color:						#222;
+	font-family: 				'Open Sans', sans-serif;
+	font-size:					16px;
+	font-weight:				400;
+	line-height:				24px;
+	margin:						0 0 24px 0;
+	text-align: 				justify;
+	word-wrap: 					break-word;
+}
+
+#block-views-clients-block p {
+	margin:						0 auto 24px auto;
+	text-align: 				justify;
+	width:						100%;
+}
+
+label {
+	color:						#222;
+	font-family: 				'Open Sans', sans-serif;
+	font-size:					16px;
+	font-weight:				400;
+	line-height:				24px;
+}
+
+strong {
+	font-weight:				600;
+}
+
+small {
+	font-size: 					12px;
+}
+
+li {
+	line-height: 24px;
+	margin-bottom: 12px;
+}
 
 a:link, a:visited {
 	color:black;
@@ -118,18 +189,19 @@ a:hover, a.active {
 
 /*Branding*/
 #region-branding {
-	text-align: center;
+	text-align: 		center;
 }
 
 .logo-img {
-	margin:12px 0 12px 0;
-	float: none;
+	margin:				12px 0 12px 0;
+	float: 				none;
 }
 
 .logo-img img {
-	width:112px;
-	height:auto;
+	width:				112px;
+	height:				auto;
 }
+
 
 /*Navigation*/
 
@@ -142,13 +214,13 @@ a:hover, a.active {
 	box-shadow:none;
 	padding:6px 0;
 	font-size: 20px;
-	font-family: open-serif;
+	font-family: 	'Sanchez', serif;
 	font-style: italic;
 }
 
 /*Structure*/
 .grey-section, #block-block-3 {
-	background:rgb(102,98,91);
+	background:#64645F;
 	color:white;
 	padding:24px 10px;
 }
@@ -187,9 +259,7 @@ a:hover, a.active {
 	font-size:16px;
 	line-height:1.5;
 }
-#block-views-clients-block p {
-	text-align: center;
-}
+
 
 /*Client Area*/
 .view-clients .view-content .views-row {
@@ -202,27 +272,63 @@ a:hover, a.active {
 /*footer*/
 footer {
 	/*background: black;*/
-	color: white;
-	background: black;
+	color: 			white;
+	background: 	black;
 	text-transform: uppercase;
+	padding-top:12px;
 
 }
 
 footer p {
-	text-align: left;
+	text-align: 	left;
+	color:			white;
 }
 
 footer h4 {
-	text-align: left;
-	color:white;
-	margin-bottom:0;
-	line-height: 1;
+	text-align: 	left;
+	color:			white;
+	margin:			0;
+	line-height: 	1;
 }
 
-footer h4:before {display: none;}
+footer h4:before {
+	display: 		none;
+}
 
 footer a:link, footer a:visited {
-	color: white;
+	color: 			white;
+}
+
+#block-delta-blocks-logo {
+	float:left;
+	width:100px;
+	height:150px;
+	margin:0 12px 0 0;
+}
+
+#block-delta-blocks-logo .logo-img img {
+	width:100%;
+	height:auto;
+	margin: 0;
+}
+
+.footer-title {
+	font-size: 18px;
+	font-weight:600;
+	line-height: 24px;
+	margin:0;	
+}
+
+
+#footer-phone	{padding-left:60px; background: url(../images/white_phone_logo.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+#footer-email	{padding-left:60px; background: url(../images/white_envelope_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+#footer-fax 	{padding-left:60px; background: url(../images/white_fax_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
+
+footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:16px;}
+
+.footer-copyright p {
+	font-size: 14px;
+	text-align: center;
 }
 
 

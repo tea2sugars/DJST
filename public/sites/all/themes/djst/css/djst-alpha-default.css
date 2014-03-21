@@ -13,6 +13,19 @@
 #region-branding {margin:0 20px;}
 #region-sidebar-second {margin-right:0;}
 
+h1, h2 {
+	color:						#222;
+	font-family:				'Josefin Sans', sans-serif;
+	font-size:					36px;
+	font-weight: 				700;
+	letter-spacing: 			0.025em;
+	line-height: 				48px;
+	margin:						12px auto;
+	max-width:					20em;
+	text-align: 				center;
+	text-transform: 			uppercase;
+}
+
 /*Navigation*/
 #region-sidebar-first, #region-sidebar-second {
 	display: inherit;
@@ -30,20 +43,23 @@
 	display: 		inline;
 	margin:			12px 24px 12px 0;
 	float: 			left;
+	font-family: 	'Sanchez', serif;
 }
 
 #region-sidebar-second .navigation li {
 	display: 		inline;
 	margin:			12px 0 12px 24px;
 	float: 			right;
+	font-family: 	'Sanchez', serif;
+
 }
 
 #region-sidebar-first p {
-	background:url(../images/phone_icon.png) no-repeat;
-	padding:6px 0 12px 47px;
-	margin-left:12px;
+	background:			url(../images/phone_icon.png) no-repeat;
+	padding:			6px 0 12px 47px;
+	margin-left:		12px;
 	margin-top:			72px;
-	font-size: 14px;
+	font-size: 			14px;
 }
 
 #region-sidebar-second p {
@@ -80,8 +96,8 @@
 
 #node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p, .centered-text {
 	text-align: center; 
-	margin-left:3em; 
-	margin-right:3em;}
+	margin-left:4em; 
+	margin-right:4em;}
 
 
 .view-clients .views-row {
@@ -104,7 +120,7 @@
 	border-radius: 0;
 	background: #64645F;
 	color: white;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	padding:12px;
 	margin:0 0 12px 0;
 	text-shadow: 0 0 0;
@@ -124,37 +140,24 @@
 
 /*Footer*/
 
+footer .grid-14, #footer-email, #footer-fax {margin-left:20px !important; }
 
+.footer-title {
+	font-size:30px;
+}
 
 #block-delta-blocks-logo {
 	float:left;
-	width:100px;
+	width:90px;
+	height:150px;
+	margin:0;
 }
-
-#block-delta-blocks-logo .logo-img img {
-	width:100%;
-	height:auto;
-}
-
-.footer-title {
-	font-size: 30px;
-	font-weight:600;
-	line-height: 1;
-	margin:12px 0;
-	
-}
-
-footer .grid-14, #footer-email, #footer-fax {margin-left:20px !important; }
-
-#footer-phone	{padding-left:60px; background: url(../images/white_phone_logo.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
-#footer-email	{padding-left:60px; background: url(../images/white_envelope_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
-#footer-fax 	{padding-left:60px; background: url(../images/white_fax_icon.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);}
-
-footer p, #footer-phone p, #footer-email p, #footer-fax p {font-size:16px;}
 
 .footer-copyright p {
-	font-size: 14px;
+	text-align: left;
 }
+
+
 
 
 
