@@ -187,6 +187,7 @@ a:hover, a.active {
 
 
 
+
 /*Branding*/
 #region-branding {
 	text-align: 		center;
@@ -375,6 +376,15 @@ input[type="email"], input[type="text"] {width:100%;}
 a.button {border: 1px dashed black; background:#e1000f; color:white; display: block; padding:12px 24px; margin:0 auto; text-align: center; text-decoration: none; text-transform: uppercase; width: 70%;}
 a.button:visited, a.button:active {background:#a10000; color: white;}
 a.button:hover {text-decoration: underline;}
+
+#back-top span#button, #back-top-prev span#button-prev {
+	background-color:#A10000;
+}
+
+#back-top span#button, #back-top a, #back-top-prev a {
+	color:#A10000;
+
+}
 
 
 
