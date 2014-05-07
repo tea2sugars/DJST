@@ -43,14 +43,12 @@ h1, h2 {
 	display: 		inline;
 	margin:			12px 24px 12px 0;
 	float: 			left;
-	font-family: 	'Sanchez', serif;
 }
 
 #region-sidebar-second .navigation li {
 	display: 		inline;
 	margin:			12px 0 12px 24px;
 	float: 			right;
-	font-family: 	'Sanchez', serif;
 
 }
 

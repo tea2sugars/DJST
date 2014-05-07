@@ -2,15 +2,18 @@
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
 
-#zone-content {width:960px;}
+#zone-content 	{width:960px;}
 #region-content {width:960px;}
 
 .navigation {
 	 	display: inherit;
 }
 
-#block-block-6 {display: none;}
- .navigation {
+#block-block-6 {
+		display: none;
+}
+
+.navigation {
 	border-top:1px solid black;
 	border-bottom:1px solid black;
 }
@@ -36,8 +39,6 @@
 	margin-left:		12px;
 	margin-top:			0px;
 	font-size: 			16px;
-	font-family: 		'Sanchez', serif;
-
 }
 
 #region-sidebar-second p {
@@ -45,7 +46,6 @@
 	margin-top:			0px;
 	padding:			6px 0 6px 59px;
 	font-size: 			16px;
-	font-family: 		'Sanchez', serif;
 }
 
 .view-clients .views-row {
