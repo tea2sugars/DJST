@@ -384,6 +384,10 @@ a.button:hover {text-decoration: underline;}
 
 }
 
+.captcha .fieldset-description {
+	font-size: 12px;
+}
+
 
 
 
