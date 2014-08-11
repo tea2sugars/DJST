@@ -388,6 +388,9 @@ a.button:hover {text-decoration: underline;}
 	font-size: 12px;
 }
 
+.captcha img {
+	width:180px !important;
+}
 
 
 
