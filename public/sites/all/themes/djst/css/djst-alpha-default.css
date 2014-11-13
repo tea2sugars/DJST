@@ -95,7 +95,8 @@ h1, h2 {
 #node_homepage_full_group_how_we_work .field-name-body p, #block-block-3 p, .centered-text {
 	text-align: center; 
 	margin-left:4em; 
-	margin-right:4em;}
+	margin-right:4em;
+	}
 
 
 .view-clients .views-row {
@@ -156,9 +157,24 @@ footer .grid-14, #footer-email, #footer-fax {margin-left:20px !important; }
 }
 
 
+.group-how-we-work p {
+	text-align: center;
+	margin-left: 4em;
+	margin-right: 4em;
+}
 
+#node-homepage-full-group-appointment-settings p {
+margin: 0 6px 24px 6px;
+text-align: justify;
+}
 
+#node-homepage-full-group-col2, #node-homepage-full-group-col3, #node-homepage-full-group-col4 {
+	margin:10px;
+}
 
+#node-homepage-full-group-col1 {
+	margin-left:0;
+}
 
 
 
